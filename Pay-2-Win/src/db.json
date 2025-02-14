@@ -1,0 +1,111 @@
+{ "Juegos":[
+  {
+  "id": 1,
+  "Title": "Counter Strike 2",
+  "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/256972298/movie480_vp9.webm?t=1696005467",
+  "Released": "21 AGO 2012",
+  "Description": "Durante más de dos décadas, Counter-Strike ha brindado una experiencia competitiva de élite, una experiencia moldeada por millones de jugadores en todo el mundo. Ahora es el momento de comenzar el siguiente capítulo en la historia de CS. Esto es Counter-Strike 2.",
+  "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1729703045",
+  "Type": "FPS"
+  },
+  {
+  "id": 2,
+  "Title": "DARK SOULS™ III",
+  "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/256663134/movie480.webm?t=1700587302",
+  "Released": "11 ABR 2016",
+  "Description": "Dark Souls continues to push the boundaries with the latest, ambitious chapter in the critically-acclaimed and genre-defining series. Prepare yourself and Embrace The Darkness!",
+  "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/374320/header.jpg?t=1733509027",
+  "Type": "Dark Souls"
+  },
+  {
+  "id": 3,
+  "Title": "Elden Ring",
+  "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/256860537/movie480_vp9.webm?t=1646817743",
+  "Released": "24 FEB 2022",
+  "Description": "EL NUEVO RPG DE ACCIÓN DE FANTASÍA. Levántate, tiznado, y déjate guiar por la gracia para esgrimir el poder del Anillo de Elden y convertirte en un Señor de Elden en las Tierras Intermedias.",
+  "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg?t=1738690346",
+  "Type": "Dark Souls"
+  },
+  {
+    "id": 4,
+    "Title": "Lies of P",
+    "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/256973335/movie480_vp9.webm?t=1696396705",
+    "Released": "18 SEP 2023",
+    "Description": "Lies of P is a thrilling soulslike that takes the story of Pinocchio, turns it on its head, and sets it against the darkly elegant backdrop of the Belle Epoque era.",
+    "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1627720/header.jpg?t=1732755139",
+    "Type": "Dark Souls"
+    },
+    {
+      "id": 5,
+      "Title": "Black Myth: Wukong",
+      "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/257048125/movie480_vp9.webm?t=1729236218",
+      "Released": "19 AGO 2024",
+      "Description": "Black Myth: Wukong es un RPG de acción inspirado en la mitología china. Emprenderás la travesía como el Destinado, enfrentarás desafíos, conocerás maravillas y descubrirás la oscura verdad que yace bajo el engañoso velo de una gloriosa leyenda ancestral.",
+      "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg?t=1739542141",
+      "Type": "Dark Souls"
+      },
+      {
+        "id": 6,
+        "Title": "Call of Duty®: Black Ops 6",
+        "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/257092651/movie480_vp9.webm?t=1738084049",
+        "Released": "25 OCT 2024",
+        "Description": "Call of Duty®: Black Ops 6 presenta la característica Campaña cinematográfica de Black Ops, la mejor experiencia de Multijugador y el épico regreso de Zomis pos rondas.",
+        "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2933620/header.jpg?t=1738088305",
+        "Type": "FPS"
+        },
+        {
+          "id": 7,
+          "Title": "Battlefield™ 2042",
+          "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/257000580/movie480_vp9.webm?t=1707836479",
+          "Released": "19 NOV 2021",
+          "Description": "Battlefield™ 2042 es un juego de disparos en primera persona que marca el regreso de la icónica guerra total de la franquicia.",
+          "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1517290/header.jpg?t=1738598406",
+          "Type": "FPS"
+          },
+          {
+            "id": 8,
+            "Title": "Delta Force",
+            "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/257078906/movie480_vp9.webm?t=1736824409",
+            "Released": "4 DIC 2024",
+            "Description": "¡Volvió Delta Force! La icónica serie regresó como el moderno juego de disparos táctico por equipo definitivo y gratuito con tres modos de juego: guerra JcJ a gran escala, intensa acción de disparos con exfiltración y una nueva versión de la campaña legendaria Black Hawk Down.",
+            "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2507950/header.jpg?t=1739539816",
+            "Type": "FPS"
+            },
+            {
+              "id": 9,
+              "Title": "Forza Horizon 5",
+              "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/257053032/movie480_vp9.webm?t=1725950927",
+              "Released": "9 NOV 2021",
+              "Description": "Explora los coloridos paisajes del mundo abierto de México con una acción de conducción ilimitada y divertida en los mejores autos del mundo. Únete a un emocionante juego de persecución con nuestra nueva experiencia multijugador 5c1: Las escondidas.",
+              "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1737050285",
+              "Type": "Carreras"
+              },
+              {
+                "id": 10,
+                "Title": "F1® 24",
+                "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/257027461/movie480_vp9.webm?t=1717208070",
+                "Released": "31 MAY 2024",
+                "Description": "Únete a la parrilla y sé 1 de las 20 personas al volante. Maneja como las grandes estrellas en EA SPORTS™ F1® 24, el videojuego oficial del 2024 FIA Formula One World Championship™.",
+                "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2488620/header.jpg?t=1736517761",
+                "Type": "Carreras"
+                },
+                {
+                  "id": 11,
+                  "Title": "Need for Speed™ Heat",
+                  "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/256823664/movie480_vp9.webm?t=1614187437",
+                  "Released": "8 NOV 2019",
+                  "Description": "Apúrate de día y arriésgalo todo de noche en Need for Speed™ Heat Deluxe Edition, un juego de carreras callejeras dinámico, donde las líneas de la ley se desvanecen a medida que se pone sol.",
+                  "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1222680/header.jpg?t=1716831270",
+                  "Type": "Carreras"
+                  },
+                  {
+                    "id": 12,
+                    "Title": "The Crew™ 2",
+                    "Trailer": "https://video.cloudflare.steamstatic.com/store_trailers/256717522/movie480.webm?t=1556554184",
+                    "Released": "29 JUN 2018",
+                    "Description": "Take on the American motorsports scene as you explore and dominate the land, air, and sea across the entire USA. With a wide variety of cars, bikes, boats, and planes, compete in a wide range of driving disciplines.",
+                    "Header": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/646910/header.jpg?t=1736258631",
+                    "Type": "Carreras"
+                    }
+]
+}

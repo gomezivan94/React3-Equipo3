@@ -1,13 +1,18 @@
 import './App.css'
-import Games from './components/Games/Games'
+import { Destacado } from './components'
+
+import Home from './components/pages/Home/Home'
+
 
 function App() {
   
 
   return (
     <>
-    <Games 
-    />
+    
+    <Home/>
+    <Destacado/>
+
     </>
   )
 }

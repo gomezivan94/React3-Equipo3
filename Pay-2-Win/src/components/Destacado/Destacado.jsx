@@ -15,7 +15,6 @@ function Destacado({ juegosDestacados = [] }) {
             <Card.Body>
               <Card.Title>{juego.Title}</Card.Title>
               <Card.Text>{juego.Description}</Card.Text>
-              <Button className='mb-3' variant="danger">Ver Juego</Button>
             </Card.Body>
           </Card>
         </Carousel.Item>

@@ -7,14 +7,14 @@ function Destacado({ juegosDestacados = [] }) {
   }
 
   return (
-    <Carousel>
+    <Carousel className='m-4'>
       {juegosDestacados.map((juego) => (
-        <Carousel.Item key={juego.id} className='p-4 mb-3'>
+        <Carousel.Item key={juego.id} className='my-2'>
           <Card className="text-center bg-dark text-white container d-flex flex-row" style={{ width: 'auto', margin: 'auto' }}>
-            <Image src={juego.Header} />
-            <Card.Body>
-              <Card.Title>{juego.Title}</Card.Title>
-              <Card.Text>{juego.Description}</Card.Text>
+            <Image className='object-fit-contain' src={juego.Header}  />
+            <Card.Body className='mb-2 '>
+              <Card.Title className='py-2'>{juego.Title}</Card.Title>
+              <Card.Text className='mb-4 '>{juego.Description}</Card.Text>
             </Card.Body>
           </Card>
         </Carousel.Item>

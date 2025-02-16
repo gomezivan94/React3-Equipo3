@@ -34,6 +34,13 @@ function Home() {
 
     const juegosDestacados = juegos.filter((juego) => juego.Destacado === true)
 
+    const juegosPorCategoria = juegos.reduce((acc, juego) => {
+        if (!acc[juego.Type]) {
+            acc[juego.Type] = []
+        }
+        acc[juego.Type].push(juego)
+        return acc
+    }, {})
 
     return (
         <div>
@@ -42,16 +49,16 @@ function Home() {
                     <Destacado juegosDestacados={juegosDestacados} />
                 )
             }
-            <Container className='games-container'>
-            
-                    {
-                        juegos.map((juego)=> (
-                            <JuegoCard key={juego.id} juego={juego}/>
-                            
-                        ))
-
-                    }
-                </Container>
+                {Object.entries(juegosPorCategoria).map(([categoria, juegosDeCategoria]) => (
+                <div key={categoria}>
+                    <h2 className='text-white px-4'>{categoria}</h2>
+                    <Container className='games-container'>
+                        {juegosDeCategoria.map((juego) => (
+                            <JuegoCard key={juego.id} juego={juego} />
+                        ))}
+                    </Container>
+                </div>
+            ))}
         </div>
     )
 }

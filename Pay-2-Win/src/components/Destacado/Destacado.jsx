@@ -1,4 +1,4 @@
-import {Carousel, Card, Button, Image} from 'react-bootstrap';
+import {Carousel, Card, Image} from 'react-bootstrap';
 
 
 function Destacado({ juegosDestacados = [] }) {

@@ -1,4 +1,6 @@
 import './App.css'
+import React from 'react';
+import Footer from './components/Footer/Footer';
 import Games from './components/Games/Games'
 
 function App() {
@@ -8,6 +10,7 @@ function App() {
     <>
     <Games 
     />
+    <Footer />
     </>
   )
 }

@@ -9,12 +9,8 @@ function App() {
 
   return (
     <>
-<<<<<<< HEAD
-    <Games 
-    />
+
     <Navbar/>
-=======
->>>>>>> b614489999237dd1a7eebe2db63c9136d3bd7275
     
     <Home/>
     

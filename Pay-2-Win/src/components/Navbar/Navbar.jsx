@@ -3,7 +3,7 @@ import { Nav, Container, Navbar as BootstrapNavbar } from 'react-bootstrap';
 import "./Navbar.css"
 function CustomNavbar() {
   return (
-    <BootstrapNavbar className= 'fixed-top navigator' data-bs-theme="dark">
+    <BootstrapNavbar className= 'fixed-top navigator p-4' data-bs-theme="dark">
       <Container>
         <BootstrapNavbar.Brand href="#inicio">Navbar</BootstrapNavbar.Brand>
         <Nav>

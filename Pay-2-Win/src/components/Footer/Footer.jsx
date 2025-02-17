@@ -7,8 +7,8 @@ const Footer = () => {
     <footer className="bg-dark text-white py-4">
       <Container>
         <Row className="align-items-center">
-          <Col className="text-center text-md-end">
-            <p className="mb-0">Todos los derechos reservados</p>
+          <Col className="text-end derechos">
+            <p className="mb-0 ">Todos los derechos reservados</p>
           </Col>
 
           <Col className="text-end">

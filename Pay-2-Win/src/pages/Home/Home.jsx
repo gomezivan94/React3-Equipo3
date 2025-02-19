@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import './Home.css'
 import { Container } from 'react-bootstrap';
-import JuegoCard from '../../JuegoCard/JuegoCard';
-import Destacado from '../../Destacado/Destacado';
+import JuegoCard from '../../components/JuegoCard/JuegoCard';
+import Destacado from '../../components/Destacado/Destacado';
 
 
 

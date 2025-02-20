@@ -6,12 +6,11 @@ const Footer = () => {
   return (
     <footer className="bg-dark text-white py-4">
       <Container>
-        <Row className="align-items-center">
-          <Col className="text-center text-md-end">
+        <Row>
+          <Col className="">
             <p className="mb-0">Todos los derechos reservados</p>
           </Col>
-
-          <Col className="text-end">
+          <Col className="text-end pe-0">
             <a
               href="https://www.instagram.com"
               target="_blank"

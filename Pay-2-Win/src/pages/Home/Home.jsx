@@ -3,6 +3,8 @@ import { Container } from 'react-bootstrap'
 import JuegoCard from '../../components/JuegoCard/JuegoCard'
 import Destacado from '../../components/Destacado/Destacado'
 import { useFetchJuegos } from '../../hooks/useFetchJuegos'
+import { Link } from 'react-router-dom'
+
 
 function Home() {
     const URL = 'https://my-json-server.typicode.com/gomezivan94/Pay2WinDB/Juegos'
@@ -24,12 +26,16 @@ function Home() {
             {juegosDestacados.length > 0 && <Destacado juegosDestacados={juegosDestacados} />}
             {Object.entries(juegosPorCategoria).map(([categoria, juegosDeCategoria]) => (
                 <div key={categoria}>
+                    
                     <h2 className='text-white px-4'>{categoria}</h2>
                     <Container className='games-container'>
                         {juegosDeCategoria.map((juego) => (
+                            <Link to={`/juego/${juego.id}`} className='card-link' key={juego.index}>
                             <JuegoCard key={juego.id} juego={juego} />
+                            </Link>
                         ))}
                     </Container>
+                    
                 </div>
             ))}
         </div>

@@ -7,3 +7,7 @@ body{background-color: #252323;}
     z-index: 2;
 }
 
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}

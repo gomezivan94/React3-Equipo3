@@ -13,6 +13,7 @@ export const useFetchJuegos = (url) => {
                 if (!response.ok) throw new Error('Error al obtener los datos')
                 const data = await response.json()
                 setJuegos(data)
+                localStorage.setItem('juegos', JSON.stringify(data))
             } catch (err) {
                 setError(err.message)
             } finally {
@@ -22,7 +23,8 @@ export const useFetchJuegos = (url) => {
 
         const timer = setTimeout(() => {
             fetchData()
-        }, 2000)
+            
+        }, 1000)
 
         return () => clearTimeout(timer)
     }, [url])

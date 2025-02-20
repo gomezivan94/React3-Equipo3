@@ -1,9 +1,11 @@
+import { TbBackground } from 'react-icons/tb'
 import { useParams } from 'react-router-dom'
 
-function JuegoDetalle({ juegos }) {
+function JuegoDetalle() {
     const { id } = useParams()
 
-    // Buscamos el juego con el ID que viene por URL
+    const juegos = JSON.parse(localStorage.getItem('juegos')) || []
+
     const juego = juegos.find((j) => j.id.toString() === id)
 
     if (!juego) {
@@ -11,10 +13,12 @@ function JuegoDetalle({ juegos }) {
     }
 
     return (
-        <div className='text-white'>
+        <div className='container text-white justify-content-center align-items-center mt-5'>
             <h1>{juego.Title}</h1>
             <p>{juego.Description}</p>
-            <img src={juego.Image} alt={juego.Title} style={{ width: '300px' }} />
+            <video alt={juego.Title} style={{ width: '50vw', height: '75vh' }} autoPlay muted controls loop>
+                <source src={juego.Trailer}/>
+            </video>
             <p>Categoría: {juego.Type}</p>
             <p>Precio: ${juego.Price}</p>
         </div>

@@ -5,7 +5,7 @@ import logo from "../assets/img/logo.png";
 
 function CustomNavbar() {
   return (
-    <BootstrapNavbar className='fixed-top navigator' data-bs-theme="dark">
+    <BootstrapNavbar className='sticky-top navigator' data-bs-theme="dark">
       <Container>
         <BootstrapNavbar.Brand href="/"><img src={logo} alt="logo" width="150px"/></BootstrapNavbar.Brand>
         <Nav>

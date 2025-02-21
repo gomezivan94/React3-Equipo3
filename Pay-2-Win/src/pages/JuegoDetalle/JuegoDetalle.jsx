@@ -1,4 +1,3 @@
-import { TbBackground } from 'react-icons/tb'
 import { useParams } from 'react-router-dom'
 
 function JuegoDetalle() {

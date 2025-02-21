@@ -24,7 +24,7 @@ export const useFetchJuegos = (url) => {
         const timer = setTimeout(() => {
             fetchData()
             
-        }, 1000)
+        }, 500)
 
         return () => clearTimeout(timer)
     }, [url])

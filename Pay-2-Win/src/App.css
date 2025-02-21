@@ -11,3 +11,7 @@ body{background-color: #252323;}
     text-decoration: none;
     color: inherit;
 }
+
+.redes:hover{
+    transform: scale(1.2);
+}

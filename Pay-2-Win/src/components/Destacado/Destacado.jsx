@@ -11,13 +11,13 @@ function Destacado({ juegosDestacados = [] }) {
   return (
     <Carousel className=''>
       {juegosDestacados.map((juego) => (
-        <Carousel.Item key={juego.id} className=''>
+        <Carousel.Item key={juego.id}>
           <Link to={`/juego/${juego.id}`} className="card-link" key={juego.id}>
           <Card className="destacado text-white">
             <Image className='slide-destacado' src={juego.Header}  />
-            <Card.Body className=''>
-              <Card.Title className=''>{juego.Title}</Card.Title>
-              <Card.Text className=' '>{juego.Description}</Card.Text>
+            <Card.Body >
+              <Card.Title >{juego.Title}</Card.Title>
+              <Card.Text >{juego.Description}</Card.Text>
             </Card.Body>
           </Card>
           </Link>

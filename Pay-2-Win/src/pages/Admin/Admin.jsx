@@ -11,8 +11,9 @@ function Admin() {
     Description: '',
     Precio: '',
     Type: '',
-    Header: '', // Portada
-    Trailer: '', // Tráiler
+    Header: '', 
+    Trailer: '', 
+    Destacado: ''
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -31,7 +32,7 @@ function Admin() {
     const idNuevoJuego = juegos.length ? juegos[juegos.length - 1].id + 1 : 1; // Asigna un ID único
     const juegoParaAgregar = { id: idNuevoJuego, ...nuevoJuego };
     agregarJuego(juegoParaAgregar);
-    setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '' }); // Resetear formulario
+    setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '', Destacado: '' }); // Resetear formulario
   };
 
   // Editar juego
@@ -45,20 +46,21 @@ function Admin() {
       Type: juego.Type,
       Header: juego.Header,
       Trailer: juego.Trailer,
+      Destacado: juego.Destacado
     });
   };
 
   // Confirmar edición del juego
   const handleConfirmEdit = () => {
     const juegoEditado = { id: editingId, ...nuevoJuego };
-    editarJuego(juegoEditado); // Llamamos a la función de edición
+    editarJuego(juegoEditado); 
     setIsEditing(false);
-    setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '' }); // Resetear formulario
+    setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '', Destacado: '' }); 
   };
 
   // Eliminar juego
   const handleDelete = (id) => {
-    eliminarJuego(id); // Llamamos a la función de eliminación
+    eliminarJuego(id); // 
   };
 
   return (
@@ -148,6 +150,17 @@ function Admin() {
               id="Trailer"
               name="Trailer"
               value={nuevoJuego.Trailer}
+              onChange={handleNuevoJuegoChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="Destacado" className="form-label">Juego Destacado</label>
+            <input
+              className='m-2'
+              type="checkbox"
+              id="Destacado"
+              name="Destacado"
+              value={nuevoJuego.Destacado.value}
               onChange={handleNuevoJuegoChange}
             />
           </div>

@@ -1,5 +1,6 @@
-import {Carousel, Card, Image, Button} from 'react-bootstrap';
+import {Carousel, Card, Image} from 'react-bootstrap';
 import './Destacado.css'
+import { Link } from 'react-router-dom';
 
 
 function Destacado({ juegosDestacados = [] }) {
@@ -8,17 +9,18 @@ function Destacado({ juegosDestacados = [] }) {
   }
 
   return (
-    <Carousel className='mt-4 destacado'>
+    <Carousel className=''>
       {juegosDestacados.map((juego) => (
-        <Carousel.Item key={juego.id} className='my-2 slide-destacado'>
-          <Card className="text-center bg-dark text-white d-flex flex-row card-destacado" style={{ width: 'auto', margin: '2%' }}>
-            <Image className='object-fit-contain' src={juego.Header}  />
-            <Card.Body className='mb-2 m-4 d-flex flex-column align-items-center justify-content-around'>
-              <Card.Title className='py-2'>{juego.Title}</Card.Title>
-              <Card.Text className='mb-4 '>{juego.Description}</Card.Text>
-              <Button className=''>Ver Juego</Button>
+        <Carousel.Item key={juego.id} className=''>
+          <Link to={`/juego/${juego.id}`} className="card-link" key={juego.id}>
+          <Card className="destacado text-white">
+            <Image className='slide-destacado' src={juego.Header}  />
+            <Card.Body className=''>
+              <Card.Title className=''>{juego.Title}</Card.Title>
+              <Card.Text className=' '>{juego.Description}</Card.Text>
             </Card.Body>
           </Card>
+          </Link>
         </Carousel.Item>
       ))}
     </Carousel>

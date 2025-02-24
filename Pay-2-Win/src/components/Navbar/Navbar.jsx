@@ -12,6 +12,7 @@ function CustomNavbar() {
           <Nav.Link href="/"><span>Inicio</span></Nav.Link>
           <Nav.Link href="/about"><span>Nosotros</span></Nav.Link>
           <Nav.Link href="/contact"><span>Contacto</span></Nav.Link>
+          <Nav.Link href="/admin"><span>Admin</span></Nav.Link>
           <Nav.Link href="/login"><FaSignInAlt className="icon-size" /></Nav.Link>
         </Nav>
       </Container>

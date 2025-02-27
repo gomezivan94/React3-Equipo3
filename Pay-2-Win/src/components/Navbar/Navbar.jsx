@@ -16,11 +16,10 @@ const handleShow = () => setShow(true);
         <BootstrapNavbar.Brand href="/"><img src={logo} alt="logo" width="150px"/></BootstrapNavbar.Brand>
         <Nav>
           <Nav.Link href="/"><span>Inicio</span></Nav.Link>
-          <Nav.Link onClick={handleShow}><span>Log In</span></Nav.Link>
           <Nav.Link href="/about"><span>Nosotros</span></Nav.Link>
           <Nav.Link href="/contact"><span>Contacto</span></Nav.Link>
           <Nav.Link href="/admin"><span>Admin</span></Nav.Link>
-          <Nav.Link href="/login"><FaSignInAlt className="icon-size" /></Nav.Link>
+          <Nav.Link onClick={handleShow}><FaSignInAlt className="icon-size" /></Nav.Link>
         </Nav>
         <ModalLogin show={show} handleClose={handleClose} />
       </Container>

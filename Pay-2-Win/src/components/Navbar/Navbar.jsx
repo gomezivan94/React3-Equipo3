@@ -19,7 +19,6 @@ const handleShow = () => setShow(true);
           <Nav.Link href="/about"><span>Nosotros</span></Nav.Link>
           <Nav.Link href="/contact"><span>Contacto</span></Nav.Link>
           <Nav.Link href="/admin"><span>Admin</span></Nav.Link>
-          <Nav.Link href="/Register"><span>Register</span></Nav.Link>
           <Nav.Link onClick={handleShow}><FaSignInAlt className="icon-size" /></Nav.Link>
         </Nav>
         <ModalLogin show={show} handleClose={handleClose} />

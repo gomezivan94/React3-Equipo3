@@ -4,15 +4,13 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import "./ModalLogin.css";
 import Swal from 'sweetalert2';
-import ModalRegistro from '../ModalRegistro/ModalRegistro';
+import ModalRegitro from '../ModalRegistro/ModalRegistro'
 
 
 
 
-
-const ModalLogin = ({show, handleClose, handleShowRegister}) => {
-
-  
+const ModalLogin = ({show, handleClose}) => {
+ 
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
 
@@ -39,16 +37,14 @@ const ModalLogin = ({show, handleClose, handleShowRegister}) => {
       text: 'Bienvenido! Has iniciado sesion!',
     });
     handleClose(); 
-    }
+    };
    
-  
+    const handleRegister = () => {
+     
+      handleClose(); 
+    };
 
-  const handleRegister = () => {
-    handleShowRegister();
-    handleClose();
-    // console.log('Estamos redirigiendote a la página de registro para que puedas formar parte de nuestra comunidad!');
-    // handleClose();
-  };
+ 
 
 return (
     
@@ -85,7 +81,6 @@ return (
         Registrarse
       </Button>
     </Modal.Footer>
-    <ModalRegistro />
   </Modal>
   
 

@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { JuegosProvider } from './context/JuegosContext';
 import {Home, Admin, JuegoDetalle, About, Contact, Error404, Register, Login} from './pages'
+import ModalLogin from './components/ModalLogin/ModalLogin'
 
 
 
@@ -18,7 +19,7 @@ function App() {
           <Route path="/juego/:id" element={<JuegoDetalle />} />
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>
-          <Route path='/Register' element={<Register/>}/>
+          <Route path='/register' element={<Register/>}/>
           <Route path='*' element={<Error404/>}/>
         </Routes>
        

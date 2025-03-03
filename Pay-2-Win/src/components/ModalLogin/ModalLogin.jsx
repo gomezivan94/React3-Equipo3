@@ -4,7 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import "./ModalLogin.css";
 import Swal from 'sweetalert2';
-import ModalRegitro from '../ModalRegistro/ModalRegistro'
+import ModalRegitro from '../ModalRegistro/ModalRegistro';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -13,6 +14,7 @@ const ModalLogin = ({show, handleClose}) => {
  
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
+    const navigate = useNavigate();
 
     const handleLogin = () => {
       const email = emailRef.current.value;
@@ -40,6 +42,7 @@ const ModalLogin = ({show, handleClose}) => {
     };
    
     const handleRegister = () => {
+      navigate('/register');
      
       handleClose(); 
     };

@@ -11,6 +11,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import './Register.css'
 
 function Register() {
   const { juegos } = useContext(JuegosContext);
@@ -86,7 +87,7 @@ function Register() {
       </Button>
     </Form>
         </Card.Text>
-        <Button variant="primary">Volver a Inicio</Button>
+        <Button variant="secondary">Volver a Inicio</Button>
       </Card.Body>
     </Card>
         </Container>

@@ -15,9 +15,7 @@ import './Register.css'
 import axios from 'axios';
 
 function Register() {
-  const { juegos } = useContext(JuegosContext);
-
-  const juegosDestacados = juegos.filter((juego) => juego.Destacado === true);
+  
 
   const [birthDate, setBirthDate] = useState(null);
   const [pais, setPais] = useState('');
@@ -41,9 +39,9 @@ function Register() {
   return (
     <div>
         <CustomNavbar/>
-      {juegosDestacados.length > 0 && <Destacado juegosDestacados={juegosDestacados} />}
       
-        <Container className="d-flex justify-content-center align-items-center"
+      
+        <Container className="d-flex justify-content-center align-items-center mt-2 mb-2"
         style={{ minHeight: '100vh', marginTop: '-30px' }}>
           <Card className='card-registro' style={{ width: '100%', maxWidth: '800px' }}>
       <Card.Header as="h5">Registrate!</Card.Header>

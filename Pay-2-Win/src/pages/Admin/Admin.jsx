@@ -160,7 +160,7 @@ function Admin() {
               type="checkbox"
               id="Destacado"
               name="Destacado"
-              value={nuevoJuego.Destacado.value}
+              value="true"
               onChange={handleNuevoJuegoChange}
             />
           </div>

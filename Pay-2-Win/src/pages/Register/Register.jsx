@@ -53,6 +53,24 @@ function Register() {
       return;
     }
 
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+      Swal.fire({
+        icon: 'error',
+        text: 'Por favor, ingresa un email válido.',
+      });
+      return;
+    }
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    if (!passwordRegex.test(password)) {
+      Swal.fire({
+        icon: 'error',
+        text: 'La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.',
+      });
+      return;
+    }
+
     const generoSeleccionado = document.querySelector('select[aria-label="Default select example"]').value;
     if (generoSeleccionado === "Selecciona") {
       Swal.fire({
@@ -193,6 +211,9 @@ function Register() {
         <Form.Label>Contraseña</Form.Label>
         <Form.Control type="password" placeholder="Contraseña" value={password} 
     onChange={(e) => setPassword(e.target.value)} />
+        <Form.Text className="text-muted">
+        La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.
+        </Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Ingresa nuevamente la contraseña elegida</Form.Label>

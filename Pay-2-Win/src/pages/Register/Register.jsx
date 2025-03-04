@@ -267,7 +267,9 @@ function Register() {
       </Button>
     </Form>
         </Card.Text>
-        <Button variant="secondary">Volver a Inicio</Button>
+        <Link to="/">
+  <Button variant="secondary">Volver a Inicio</Button>
+</Link>
       </Card.Body>
     </Card>
         </Container>

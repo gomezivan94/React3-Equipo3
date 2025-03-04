@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Footer from '../../components/Footer/Footer';
 import CustomNavbar from '../../components/Navbar/Navbar';
 import { useContext } from 'react';
@@ -12,6 +12,7 @@ import Form from 'react-bootstrap/Form';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './Register.css'
+import axios from 'axios';
 
 function Register() {
   const { juegos } = useContext(JuegosContext);
@@ -19,8 +20,22 @@ function Register() {
   const juegosDestacados = juegos.filter((juego) => juego.Destacado === true);
 
   const [birthDate, setBirthDate] = useState(null);
+  const [pais, setPais] = useState('');
+  const [paises, setPaises] = useState([]);
 
-  
+  useEffect(() => {
+    const fetchPaises = async () => {
+      try {
+        const response = await axios.get('https://restcountries.com/v3.1/all');
+        const paisesList = response.data.map(pais => pais.name.common);
+        paisesList.sort((a, b) => a.localeCompare(b));
+        setPaises(paisesList);
+      } catch (error) {
+        console.error("Error al obtener los países:", error);
+      }
+    };
+    fetchPaises();
+  }, []);
 
 
   return (
@@ -60,6 +75,25 @@ function Register() {
       <option value="1">Femenino</option>
       <option value="2">Masculino</option>
     </Form.Select>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPais">
+        <Form.Label>País</Form.Label>
+        <Form.Select
+          value={pais}
+          onChange={(e) => setPais(e.target.value)}
+          aria-label="Select a country"
+        >
+          <option>Selecciona tu País</option>
+          {paises.length > 0 ? (
+            paises.map((paisOption, index) => (
+              <option key={index} value={paisOption}>
+                {paisOption}
+              </option>
+            ))
+          ) : (
+            <option>Cargando países...</option>
+          )}
+        </Form.Select>
       </Form.Group>
       
    </Form.Group>

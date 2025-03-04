@@ -14,6 +14,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import './Register.css'
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import emailjs from 'emailjs-com';
+
 
 
 function Register() {
@@ -106,6 +108,8 @@ function Register() {
       return;
     }
 
+    const formattedDate = birthDateObj.toLocaleDateString();  
+
     
     const today = new Date();
     let age = today.getFullYear() - birthDateObj.getFullYear();
@@ -125,13 +129,48 @@ function Register() {
       return;
     }
 
+    const templateParams = {
+      to_name: 'Admin',
+      from_name: nombre, 
+      message: `Usuario registrado con los siguientes datos: 
+                Nombre: ${nombre} 
+                Apellido: ${apellido}
+                Email: ${email}
+                País: ${pais}
+                Fecha de nacimiento: ${formattedDate}`,
+    };
     
-    Swal.fire({
-      icon: 'success',
-      title: '¡Registrado exitosamente!',
-      text: 'Bienvenido a Pay2Win!',
-    });
+    emailjs.send('service_68b7uy8', 'template_h3gn3pw', templateParams, '5FeQCGxt625DgpXbg')
+      .then((response) => {
+        console.log('Email enviado correctamente:', response);
+        Swal.fire({
+          icon: 'success',
+          title: '¡Registrado exitosamente!',
+          text: 'Bienvenido a Pay2Win!',
+        });
+      })
+      .catch((error) => {
+        console.error('Error al enviar el email:', error);
+        if (error.response) {
+          console.error('Detalles del error:', error.response.data); 
+        }
+        Swal.fire({
+          icon: 'error',
+          html: `
+            Hubo un problema al realizar el registro. Inténtalo nuevamente. Si el problema persiste, ponte en contacto con nosotros.
+            <br>
+            <a href="/contacto">
+              <button class="swal2-confirm swal2-styled" style="margin-top: 10px;">Contactanos</button>
+            </a>
+          `,
+        });
+      
+      });
+
+  
   };
+
+  
 
 
   return (

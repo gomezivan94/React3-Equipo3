@@ -13,10 +13,16 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './Register.css'
 import axios from 'axios';
+import Swal from 'sweetalert2';
+
 
 function Register() {
   
-
+  const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [birthDate, setBirthDate] = useState(null);
   const [pais, setPais] = useState('');
   const [paises, setPaises] = useState([]);
@@ -35,6 +41,80 @@ function Register() {
     fetchPaises();
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+   
+    if (!nombre || !apellido || !email || !password || !confirmPassword || !pais || !birthDate) {
+      Swal.fire({
+        icon: 'error',
+        text: 'Por favor, completa todos los campos requeridos.',
+      });
+      return;
+    }
+
+    const generoSeleccionado = document.querySelector('select[aria-label="Default select example"]').value;
+    if (generoSeleccionado === "Selecciona") {
+      Swal.fire({
+        icon: 'error',
+        text: 'Por favor, selecciona tu género.',
+      });
+      return;
+    }
+
+    
+    if (pais === "Selecciona tu País") {
+      Swal.fire({
+        icon: 'error',
+        text: 'Por favor, selecciona tu país.',
+      });
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      Swal.fire({
+        icon: 'error',
+        text: 'Las contraseñas no coinciden.',
+      });
+      return;
+    }
+
+    const birthDateObj = new Date(birthDate);
+    if (isNaN(birthDateObj)) {
+      Swal.fire({
+        icon: 'error',
+        text: 'La fecha de nacimiento no es válida.',
+      });
+      return;
+    }
+
+    
+    const today = new Date();
+    let age = today.getFullYear() - birthDateObj.getFullYear();
+    const month = today.getMonth() - birthDateObj.getMonth();
+
+    
+    if (month < 0 || (month === 0 && today.getDate() < birthDateObj.getDate())) {
+      age--; 
+    }
+
+   
+    if (age < 13) {
+      Swal.fire({
+        icon: 'error',
+        text: 'Debes ser mayor de 13 años para registrarte.',
+      });
+      return;
+    }
+
+    
+    Swal.fire({
+      icon: 'success',
+      title: '¡Registrado exitosamente!',
+      text: 'Bienvenido a Pay2Win!',
+    });
+  };
+
 
   return (
     <div>
@@ -48,14 +128,16 @@ function Register() {
       <Card.Body>
         <Card.Title>Completa con tus datos para formar parte de la mejor comunidad gamer!</Card.Title>
         <Card.Text>
-        <Form>
+        <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Nombre</Form.Label>
-        <Form.Control type="name" placeholder="Ingresa tu Nombre" />
+        <Form.Control type="name" placeholder="Ingresa tu Nombre" value={nombre} 
+    onChange={(e) => setNombre(e.target.value)} />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Apellido</Form.Label>
-        <Form.Control type="name" placeholder="Ingresa tu Apellido" />
+        <Form.Control type="name" placeholder="Ingresa tu Apellido" value={apellido} 
+    onChange={(e) => setApellido(e.target.value)}  />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicBirthDate">
       <Form.Label>Fecha de Nacimiento</Form.Label>
@@ -66,6 +148,9 @@ function Register() {
         placeholderText="Fecha de nacimiento"
         className="form-control"
       /></div>
+      <Form.Text className="text-muted">
+          Debes tener mas de 13 años para poder registrarte.
+        </Form.Text>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Genero</Form.Label>
         <Form.Select aria-label="Default select example">
@@ -97,19 +182,22 @@ function Register() {
    </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="Ingresa tu email" />
+        <Form.Control type="email" placeholder="Ingresa tu email" value={email} 
+    onChange={(e) => setEmail(e.target.value)} />
         <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
+          No compartiremos tu Email con terceros
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Contraseña</Form.Label>
-        <Form.Control type="password" placeholder="Contraseña" />
+        <Form.Control type="password" placeholder="Contraseña" value={password} 
+    onChange={(e) => setPassword(e.target.value)} />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Ingresa nuevamente la contraseña elegida</Form.Label>
-        <Form.Control type="password" placeholder="Contraseña" />
+        <Form.Control type="password" placeholder="Confirmar contraseña" value={confirmPassword} 
+    onChange={(e) => setConfirmPassword(e.target.value)} />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Recibir por email las ultimas actualizaciones." />

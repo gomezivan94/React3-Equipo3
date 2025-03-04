@@ -43,6 +43,16 @@ function Register() {
     fetchPaises();
   }, []);
 
+  const handleClear = () => {
+    setNombre('');
+    setApellido('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+    setBirthDate(null);
+    setPais('');
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -167,6 +177,8 @@ function Register() {
       
       });
 
+      
+
   
   };
 
@@ -262,14 +274,22 @@ function Register() {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Recibir por email las ultimas actualizaciones." />
       </Form.Group>
-      <Button variant="secondary" type="submit">
+      <div className="d-flex"> 
+        <Button variant="secondary"   type="submit">
         Registrarme
       </Button>
+      </div>
+      <div className="mt-3"><Button variant="secondary"  type="button" onClick={handleClear} >
+        Borrar Formulario
+      </Button></div>
+     
+      
     </Form>
         </Card.Text>
-        <Link to="/">
+        <div className="d-flex justify-content-center mt-3"> <Link to="/">
   <Button variant="secondary">Volver a Inicio</Button>
-</Link>
+</Link></div>
+       
       </Card.Body>
     </Card>
         </Container>

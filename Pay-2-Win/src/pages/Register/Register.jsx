@@ -187,8 +187,6 @@ function Register() {
 
   return (
     <div>
-        <CustomNavbar/>
-      
       
         <Container className="d-flex justify-content-center align-items-center mt-2 mb-2"
         style={{ minHeight: '100vh', marginTop: '-30px' }}>

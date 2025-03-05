@@ -45,7 +45,7 @@ function Home() {
 
   return (
     <div>
-      <CustomNavbar />
+      
       {juegosDestacados.length > 0 && <Destacado juegosDestacados={juegosDestacados} />}
       {Object.entries(juegosPorCategoria).map(([categoria, juegosDeCategoria]) => (
         <div key={categoria}>

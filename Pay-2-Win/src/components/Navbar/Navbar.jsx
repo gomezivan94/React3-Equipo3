@@ -5,7 +5,7 @@ import logo from "../assets/img/logo.png";
 import { useState } from 'react';
 import ModalLogin from '../ModalLogin/ModalLogin';
 
-function CustomNavbar() {
+function CustomNavbar({ openLoginModal }) {
   const [show, setShow] = useState(false);
 
 const handleClose = () => setShow(false);

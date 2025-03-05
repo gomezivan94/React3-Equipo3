@@ -14,7 +14,7 @@ function ProtectedRoutes({children}) {
         );   
     }
 
-    if(!user) return <Navigate to="/login"/>
+    if(!user) return null
 
   return children
 }

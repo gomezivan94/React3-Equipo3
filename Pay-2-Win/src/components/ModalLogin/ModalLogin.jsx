@@ -6,7 +6,7 @@ import "./ModalLogin.css";
 import Swal from 'sweetalert2';
 import ModalRegitro from '../ModalRegistro/ModalRegistro';
 import { useNavigate } from 'react-router-dom';
-import { auth, googleProvider } from '../../Firebase';
+import { auth, googleProvider, signInWithPopup } from '../../Firebase';
 import { FaGoogle } from 'react-icons/fa';
 
 

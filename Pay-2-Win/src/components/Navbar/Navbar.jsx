@@ -31,8 +31,8 @@ const handleLogout = async () => {
 };
 
   return (
-    <BootstrapNavbar className='sticky-top navigator' data-bs-theme="dark">
-      <Container>
+    <BootstrapNavbar className='sticky-top navigator ' data-bs-theme="dark">
+      <Container className='d-flex flex-row row-12'>
         <BootstrapNavbar.Brand href="/"><img src={logo} alt="logo" width="150px"/></BootstrapNavbar.Brand>
         <Nav>
           <Nav.Link href="/"><span>Inicio</span></Nav.Link>

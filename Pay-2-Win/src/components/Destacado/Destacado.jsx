@@ -14,7 +14,7 @@ function Destacado({ juegosDestacados = [] }) {
         <Carousel.Item key={juego.id}>
           <Link to={`/juego/${juego.id}`} className="card-link" key={juego.id}>
           <Card className="destacado text-white">
-            <Image className='slide-destacado' src={juego.Header}  />
+            <Image className='slide-destacado img-fluid' src={juego.Header}  />
             <Card.Body >
               <Card.Title >{juego.Title}</Card.Title>
               <Card.Text >{juego.Description}</Card.Text>

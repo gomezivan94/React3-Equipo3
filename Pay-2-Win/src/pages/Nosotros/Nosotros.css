@@ -17,13 +17,9 @@ p {
     color: azure;
 }
 
-.card-body:hover {
+.nosotros-card:hover {
     transform: scale(1.1);
     z-index: 2;
 
 }
-.card-img-top:hover {
-    transform: scale(1.1);
-    z-index: 2;
 
-}

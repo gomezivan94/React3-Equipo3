@@ -10,7 +10,7 @@ function Nosotros() {
   return (
     <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
-    <div class="card bg-dark">
+    <div class="card nosotros-card bg-dark">
       <img src={Lautaro} class="card-img-top" alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Lautaro Borges</h5>
@@ -19,7 +19,7 @@ function Nosotros() {
     </div>
   </div>
   <div class="col">
-    <div class="card bg-dark">
+    <div class="card nosotros-card bg-dark">
       <img src={Naty} class="card-img-top" height={400} width={200} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Natividad Rodriguez</h5>
@@ -28,7 +28,7 @@ function Nosotros() {
     </div>
   </div>
   <div class="col">
-    <div class="card bg-dark">
+    <div class="card nosotros-card bg-dark">
       <img src={maxi} class="card-img-top" height={400} width={200} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Maxi Gamboa</h5>
@@ -37,7 +37,7 @@ function Nosotros() {
     </div>
   </div>
   <div class="col">
-    <div class="card bg-dark">
+    <div class="card nosotros-card bg-dark">
       <img src={Santi} class="card-img-top" height={400} width={200} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Santiago Nieva Glembocki</h5>
@@ -48,7 +48,7 @@ Actualmente, por cursar 5to año de Ing. En sistemas de Información.Me gusta ha
     </div>
   </div>
   <div class="col">
-    <div class="card bg-dark">
+    <div class="card nosotros-card bg-dark">
       <img src={Ivan} class=" card-img-top" height={400} width={200} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Iván Gomez</h5>
@@ -57,7 +57,7 @@ Actualmente, por cursar 5to año de Ing. En sistemas de Información.Me gusta ha
     </div>
   </div>
   <div class="col">
-    <div class="card bg-dark">
+    <div class="card nosotros-card bg-dark">
       <img src={Matias} class="card-img-top" height={400} width={200} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Matias Romano</h5>

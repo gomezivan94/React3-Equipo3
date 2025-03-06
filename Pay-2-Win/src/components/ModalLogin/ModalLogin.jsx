@@ -114,8 +114,12 @@ return (
         <div><Button variant="secondary" onClick={handleLogin}>
         Inicia Sesion
       </Button></div>
-      <div className='mt-2'> <Button variant="secondary" onClick={handleGoogleLogin}> <FaGoogle style={{ marginRight: '8px' }} />
+      <div className='mt-2 mb-3'> <Button variant="secondary" onClick={handleGoogleLogin}> <FaGoogle style={{ marginRight: '8px' }} />
         Inicia Sesion con Google
+      </Button></div>
+      <div className='text-start'><h6>Olvidaste tu contraseña? Sigue estos pasos para restablecerla.</h6></div>
+      <div><Button variant="secondary">
+        Restablecer Contraseña
       </Button></div>
         
      

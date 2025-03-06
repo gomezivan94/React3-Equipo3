@@ -1,15 +1,35 @@
-import { FaSignInAlt } from 'react-icons/fa';
+import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 import { Nav, Container, Navbar as BootstrapNavbar } from 'react-bootstrap';
 import "./Navbar.css";
 import logo from "../assets/img/logo.png";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ModalLogin from '../ModalLogin/ModalLogin';
+import { auth, signOut } from '../../Firebase';
 
 function CustomNavbar({ openLoginModal }) {
   const [show, setShow] = useState(false);
+  const [user, setUser] = useState(null);
 
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
+
+useEffect(() => {
+  const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+    setUser(currentUser); 
+  });
+
+  return () => unsubscribe();
+}, []);
+
+const handleLogout = async () => {
+  try {
+    await signOut(auth); 
+    setUser(null); 
+  } catch (error) {
+    console.error("Error al cerrar sesión", error);
+  }
+};
+
   return (
     <BootstrapNavbar className='sticky-top navigator' data-bs-theme="dark">
       <Container>
@@ -19,7 +39,11 @@ const handleShow = () => setShow(true);
           <Nav.Link href="/about"><span>Nosotros</span></Nav.Link>
           <Nav.Link href="/contact"><span>Contacto</span></Nav.Link>
           <Nav.Link href="/admin"><span>Admin</span></Nav.Link>
-          <Nav.Link onClick={handleShow}><FaSignInAlt className="icon-size" /></Nav.Link>
+          {!user ? (
+  <Nav.Link onClick={handleShow}><FaSignInAlt className="icon-size" /> Iniciar sesión</Nav.Link>
+) : (
+  <Nav.Link onClick={handleLogout}><FaSignOutAlt className="icon-size" /> Cerrar sesión</Nav.Link>
+)}
         </Nav>
         <ModalLogin show={show} handleClose={handleClose} />
       </Container>

@@ -152,8 +152,8 @@ function Register() {
    
     Swal.fire({
       icon: 'success',
-      title: '¡Registrado exitosamente!',
-      text: 'Se te ha enviado un correo para verificar tu email.',
+      title: '¡Registrado exitosamente! Bienvenido a Pay2Win!',
+      text: 'Se te ha enviado un correo para verificar tu email, por favor revisa tu bandeja de entrada.',
     });
   } catch (error) {
   
@@ -179,11 +179,6 @@ function Register() {
     emailjs.send('service_68b7uy8', 'template_h3gn3pw', templateParams, '5FeQCGxt625DgpXbg')
       .then((response) => {
         console.log('Email enviado correctamente:', response);
-        Swal.fire({
-          icon: 'success',
-          title: '¡Registrado exitosamente!',
-          text: 'Bienvenido a Pay2Win!',
-        });
       })
       .catch((error) => {
         console.error('Error al enviar el email:', error);

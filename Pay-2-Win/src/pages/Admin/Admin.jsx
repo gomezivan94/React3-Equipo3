@@ -65,7 +65,6 @@ function Admin() {
 
   return (
     <>
-    <CustomNavbar/>
     <div className="container text-white text-center">
       <h2>Administrar Juegos</h2>
 

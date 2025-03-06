@@ -6,7 +6,7 @@ import "./ModalLogin.css";
 import Swal from 'sweetalert2';
 import ModalRegitro from '../ModalRegistro/ModalRegistro';
 import { useNavigate } from 'react-router-dom';
-import { auth, googleProvider, signInWithPopup } from '../../Firebase';
+import { auth, googleProvider, signInWithPopup, signInWithEmailAndPassword } from '../../Firebase';
 import { FaGoogle } from 'react-icons/fa';
 
 
@@ -38,7 +38,7 @@ const ModalLogin = ({show, handleClose}) => {
     };
   
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
       const email = emailRef.current.value;
       const password = passwordRef.current.value;
 
@@ -56,12 +56,28 @@ const ModalLogin = ({show, handleClose}) => {
       });
       return;
     }
-    Swal.fire ({
-      icon: 'success',
-      text: 'Bienvenido! Has iniciado sesion!',
-    });
-    handleClose(); 
-    };
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      Swal.fire({
+        icon: 'success',
+        text: 'Bienvenido! Has iniciado sesión!',
+      });
+      handleClose();
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        html: `
+            El email no corresponde a ningun usuario. Si no tienes una cuenta, resgistrate.
+            <br>
+            <a href="/register">
+              <button class="swal2-confirm swal2-styled" style="margin-top: 10px;">Registrarse</button>
+            </a>
+          `,
+      });
+    }
+  };
+
    
     const handleRegister = () => {
       navigate('/register');

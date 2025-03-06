@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Nosotros.css";
-import maxi from"../AssetsPage/maxi.jpg";
+import maxi from"../AssetsPage/Maxi.jpg";
 import Lautaro from"../AssetsPage/Lautaro.jpeg";
 import Naty from"../AssetsPage/Naty.jpg";
 import Ivan from"../AssetsPage/Ivan.jpg";

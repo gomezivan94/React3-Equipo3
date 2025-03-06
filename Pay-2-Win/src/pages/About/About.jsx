@@ -12,11 +12,11 @@ function About() {
           </div>
           
           <div className='col-lg-6 d-flex flex-column align-items-center justify-content-center'>
-            <h1 className=' Titulo text-light'> Somos Mejores que Steam</h1>
+            <h1 className=' Titulo text-light'> Somos mejores que Steam</h1>
             
-            <h4  className=' mb-5 ms-4 text-light'>Si estas pensando en jugar, estas pensando en nosotros</h4>
+            <h4  className=' Parrafo text-light'>Si estas pensando en jugar, estas pensando en nosotros</h4>
             <Link to="/nosotros">
-              <button className='btn btn-primary  btn-lg' href="/Nosotros">Más sobre Nosotros</button>
+              <button className='boton-azul btn btn-primary  btn-lg' href="/Nosotros">Conocenos mejor</button>
             </Link>
           </div>
         </div>

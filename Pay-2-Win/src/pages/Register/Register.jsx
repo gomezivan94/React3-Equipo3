@@ -15,6 +15,8 @@ import './Register.css'
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import emailjs from 'emailjs-com';
+import { auth } from '../../Firebase';
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 
 
 
@@ -53,7 +55,7 @@ function Register() {
     setPais('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
    
@@ -139,6 +141,30 @@ function Register() {
       return;
     }
 
+    
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    
+    await sendEmailVerification(user);
+
+   
+    Swal.fire({
+      icon: 'success',
+      title: '¡Registrado exitosamente!',
+      text: 'Se te ha enviado un correo para verificar tu email.',
+    });
+  } catch (error) {
+  
+    console.error('Error al crear el usuario:', error.message);
+    Swal.fire({
+      icon: 'error',
+      text: 'Hubo un error al crear tu cuenta. Intenta nuevamente.',
+    });
+  }
+
+
     const templateParams = {
       to_name: 'Admin',
       from_name: nombre, 
@@ -180,13 +206,16 @@ function Register() {
       
 
   
-  };
+  }; 
 
   
 
 
   return (
+    
     <div>
+
+      
       
         <Container className="d-flex justify-content-center align-items-center mt-2 mb-2"
         style={{ minHeight: '100vh', marginTop: '-30px' }}>

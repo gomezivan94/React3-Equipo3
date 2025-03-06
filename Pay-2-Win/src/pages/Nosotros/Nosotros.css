@@ -17,15 +17,13 @@ p {
     color: azure;
 }
 
-.card-body:hover {
+.nosotros-card:hover {
     transform: scale(1.1);
     z-index: 2;
 
 }
-.card-img-top:hover {
-    transform: scale(1.1);
-    z-index: 2;
 
+<<<<<<< HEAD
 }
  @media (max-width :800px) {
  .card-body {
@@ -33,3 +31,5 @@ p {
  }
 
  }
+=======
+>>>>>>> 50fad78cbfb7debbf2ec56b18f834e4cec2dc25f

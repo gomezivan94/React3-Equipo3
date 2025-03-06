@@ -2,7 +2,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { JuegosProvider } from './context/JuegosContext';
-import {Home, Admin, JuegoDetalle, About, Contact, Error404, Register} from './pages'
+import {Home, Admin, JuegoDetalle, About, Contact, Error404, Register, Nosotros} from './pages'
 import ModalLogin from './components/ModalLogin/ModalLogin'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import CustomNavbar from './components/Navbar/Navbar';
@@ -41,7 +41,7 @@ function App() {
       <CustomNavbar openLoginModal={openLoginModal} />
         <Routes>
           <Route path="/" element={<Home/>} />
-          
+          <Route path='/nosotros' element={<Nosotros/>} />
           <Route path="/juego/:id" element={<JuegoDetalle />} />
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>

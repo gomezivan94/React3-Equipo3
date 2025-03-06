@@ -15,7 +15,7 @@ function About() {
             <h1 className=' Titulo text-light'> Somos Mejores que Steam</h1>
             
             <h4  className=' mb-5 ms-4 text-light'>Si estas pensando en jugar, estas pensando en nosotros</h4>
-            <Link to="/Nosotros">
+            <Link to="/nosotros">
               <button className='btn btn-primary  btn-lg' href="/Nosotros">Más sobre Nosotros</button>
             </Link>
           </div>

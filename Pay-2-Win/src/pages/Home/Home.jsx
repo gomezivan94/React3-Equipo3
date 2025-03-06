@@ -6,32 +6,30 @@ import JuegoCard from '../../components/JuegoCard/JuegoCard';
 import Destacado from '../../components/Destacado/Destacado';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import CustomNavbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
 function Home() {
-  const url = "https://my-json-server.typicode.com/gomezivan94/Pay2WinDB/Juegos"; // Cambia esta URL
+  const url = "https://my-json-server.typicode.com/gomezivan94/Pay2WinDB/Juegos";
   const { juegos: juegosAPI, loading, error } = useFetchJuegos(url);
   const { juegos: juegosContext, setJuegos } = useContext(JuegosContext);
 
   const [juegos, setLocalJuegos] = useState([]);
   
-  // Cargar juegos desde localStorage si están disponibles
+
   useEffect(() => {
     const juegosGuardados = JSON.parse(localStorage.getItem('juegos')) || [];
     if (juegosGuardados.length > 0) {
-      setLocalJuegos(juegosGuardados);  // Si hay juegos guardados, usarlos
+      setLocalJuegos(juegosGuardados);  
     } else {
-      // Si no, utilizar los juegos de la API
       setLocalJuegos(juegosAPI);
-      localStorage.setItem('juegos', JSON.stringify(juegosAPI));  // Guardar en localStorage
+      localStorage.setItem('juegos', JSON.stringify(juegosAPI));  
     }
   }, [juegosAPI]);
 
-  // Actualizar juegos en localStorage cuando cambia el estado
+
   useEffect(() => {
     if (juegos.length > 0) {
-      localStorage.setItem('juegos', JSON.stringify(juegos)); // Actualizar localStorage con los juegos actuales
+      localStorage.setItem('juegos', JSON.stringify(juegos)); 
     }
   }, [juegos]);
 

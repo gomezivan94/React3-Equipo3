@@ -1,8 +1,7 @@
-// src/pages/Admin/Admin.jsx
 import { useContext, useState } from 'react';
 import { JuegosContext } from '../../context/JuegosContext'; 
 import Footer from '../../components/Footer/Footer';
-import CustomNavbar from '../../components/Navbar/Navbar';
+
 
 function Admin() {
   const { juegos, agregarJuego, editarJuego, eliminarJuego } = useContext(JuegosContext);
@@ -19,7 +18,7 @@ function Admin() {
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
 
-  // Maneja el cambio en los campos del formulario
+
   const handleNuevoJuegoChange = (e) => {
     setNuevoJuego({
       ...nuevoJuego,
@@ -27,7 +26,6 @@ function Admin() {
     });
   };
 
-  // Agregar nuevo juego
   const handleAgregarJuego = () => {
     const idNuevoJuego = juegos.length ? juegos[juegos.length - 1].id + 1 : 1; // Asigna un ID único
     const juegoParaAgregar = { id: idNuevoJuego, ...nuevoJuego };
@@ -35,7 +33,7 @@ function Admin() {
     setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '', Destacado: '' }); // Resetear formulario
   };
 
-  // Editar juego
+
   const handleEdit = (juego) => {
     setIsEditing(true);
     setEditingId(juego.id);
@@ -50,7 +48,7 @@ function Admin() {
     });
   };
 
-  // Confirmar edición del juego
+
   const handleConfirmEdit = () => {
     const juegoEditado = { id: editingId, ...nuevoJuego };
     editarJuego(juegoEditado); 
@@ -58,7 +56,7 @@ function Admin() {
     setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '', Destacado: '' }); 
   };
 
-  // Eliminar juego
+
   const handleDelete = (id) => {
     eliminarJuego(id); // 
   };

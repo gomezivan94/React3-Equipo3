@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import "./Nosotros.css";
 import maxi from"../AssetsPage/maxi.jpg";
 import Lautaro from"../AssetsPage/Lautaro.jpeg";

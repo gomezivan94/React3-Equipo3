@@ -15,3 +15,7 @@ body{background-color: #252323;}
 .redes:hover{
     transform: scale(1.2);
 }
+
+.errorimg{
+    margin-left: 35%;
+}

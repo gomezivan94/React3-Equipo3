@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import './ResetPass.css';
-import { auth, sendPasswordResetEmail } from '../../Firebase'; 
+import { getAuth, sendPasswordResetEmail, fetchSignInMethodsForEmail } from '../../Firebase'; 
 import Footer from '../../components/Footer/Footer';
 import CustomNavbar from '../../components/Navbar/Navbar';
 import { JuegosContext } from '../../context/JuegosContext';  
@@ -22,7 +22,8 @@ const juegosDestacados = juegos.filter((juego) => juego.Destacado === true);
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    
     if (!email) {
       Swal.fire({
         icon: 'error',
@@ -31,29 +32,67 @@ const handleSubmit = async (e) => {
       });
       return;
     }
-
+  
     setLoading(true);  
-
+  
     try {
-      await sendPasswordResetEmail(auth, email);  
-
+      const auth = getAuth();  
+  
+     
+      const methods = await fetchSignInMethodsForEmail(auth, email.trim().toLowerCase()); 
+  
+     
+      if (methods.length === 0) {
+        
+        Swal.fire({
+          icon: 'error',
+          title: 'Correo no registrado',
+          text: 'El correo ingresado no está registrado. ¿Te gustaría registrarte?',
+          showCancelButton: true,
+          confirmButtonText: 'Registrar',
+          cancelButtonText: 'Volver al inicio',
+        }).then((result) => {
+          if (result.isConfirmed) {
+           
+            window.location.href = '/register'; 
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            
+            window.location.href = '/';  
+          }
+        });
+        return; 
+      }
+  
+     
+      await sendPasswordResetEmail(auth, email.trim().toLowerCase());  
+  
       Swal.fire({
         icon: 'success',
         title: '¡Correo enviado!',
         text: 'Te hemos enviado un correo para restablecer tu contraseña.',
       });
+  
     } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Hubo un error al intentar enviar el correo. Intenta nuevamente.',
-      });
-      console.error(error);  
+    
+      if (error.code === 'auth/user-not-found') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Correo no encontrado',
+          text: 'El correo ingresado no está registrado.',
+        });
+      } else {
+        
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al enviar correo',
+          text: 'Hubo un error al intentar enviar el correo. Intenta nuevamente.',
+        });
+      }
+      console.error('Error al intentar restablecer la contraseña:', error);  
     } finally {
       setLoading(false);  
     }
   };
-
 
   return (
     <div>

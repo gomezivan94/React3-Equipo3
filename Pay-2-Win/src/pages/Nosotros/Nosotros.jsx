@@ -11,7 +11,7 @@ function Nosotros() {
     <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
     <div class="card bg-dark">
-      <img src={Lautaro} class="card-img-top" alt="..."></img>
+      <img src={Lautaro} class="card-img-top" height={400} width={400} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Lautaro Borges</h5>
         <p class="card-text">Me llamo Lautaro Borges Licciardi, tengo 22 años, estudié en la Escuela Normal y ahora estoy masterizando mis habilidades de programación. Me gusta jugar juegos, ir al gimnasio y hacer videos para las redes.</p>
@@ -20,7 +20,7 @@ function Nosotros() {
   </div>
   <div class="col">
     <div class="card bg-dark">
-      <img src={Naty} class="card-img-top" height={400} width={200} alt="..."></img>
+      <img src={Naty} class="card-img-top" height={400} width={400} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Natividad Rodriguez</h5>
         <p class="card-text">Me llamo Natividad, tengo 34 años, soy Tecnica de Laboratorio, trabajo en una clinica, me gusta viajar, hacer trekking, el contacto con la naturaleza, amante del café, el chocolate y el vino, de vez en cuando suelo participar en talleres al respecto.</p>
@@ -29,7 +29,7 @@ function Nosotros() {
   </div>
   <div class="col">
     <div class="card bg-dark">
-      <img src={maxi} class="card-img-top" height={400} width={200} alt="..."></img>
+      <img src={maxi} class="card-img-top" height={400} width={400} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Maxi Gamboa</h5>
         <p class="card-text">Me llamo Maximiliano Gamboa tengo 21 años estudio en la UNSTA (desarrollo de software),en la aticana curso de inglés ,me gusta jugar juego en la compu ,caminar y ir al gimnasio</p>
@@ -38,7 +38,7 @@ function Nosotros() {
   </div>
   <div class="col">
     <div class="card bg-dark">
-      <img src={Santi} class="card-img-top" height={400} width={200} alt="..."></img>
+      <img src={Santi} class="card-img-top" height={400} width={400} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Santiago Nieva Glembocki</h5>
         <p class="card-text">Santiago Nieva Glembocki, 22 años.
@@ -49,7 +49,7 @@ Actualmente, por cursar 5to año de Ing. En sistemas de Información.Me gusta ha
   </div>
   <div class="col">
     <div class="card bg-dark">
-      <img src={Ivan} class=" card-img-top" height={400} width={200} alt="..."></img>
+      <img src={Ivan} class=" card-img-top" height={400} width={400} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Iván Gomez</h5>
         <p class="card-text">Iván Gomez, 31 años, Soporte IT / Help Desk. Disfruto aprender tecnologias nuevas y jugar videojuegos</p>
@@ -58,7 +58,7 @@ Actualmente, por cursar 5to año de Ing. En sistemas de Información.Me gusta ha
   </div>
   <div class="col">
     <div class="card bg-dark">
-      <img src={Matias} class="card-img-top" height={400} width={200} alt="..."></img>
+      <img src={Matias} class="card-img-top" height={400} width={400} alt="..."></img>
       <div class="card-body">
         <h5 class=" Titulo card-title ">Matias Romano</h5>
         <p class="card-text">Me llamo Matias y tengo 40 años. Soy profesor de Ingles y dibujante. Trabajo en soporte tecnico de Personal, Cablevision y Fibertel hace 12 años. Amo la tecnologia y en especial, los videojuegos.</p>

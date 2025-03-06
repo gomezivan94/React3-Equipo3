@@ -66,11 +66,12 @@ function ContactForm() {
 
     return (
         <>
-    <div className="container my-5 text-white row">
-        <div className="row px-5">
-            <div className="col-lg-6 d-flex align-items-center justify-content-center">
+        <h1 className="text-white pt-2 text-center">Contactanos!</h1>
+    <div className="container d-flex align-items-center my-5 text-white">
+        <div className="container">
+            <div className="d-flex align-items-center justify-content-center">
             </div>
-            <div className="col-lg-6 d-flex justify-content-center">
+            <div className="d-flex justify-content-center">
             <Formik
             initialValues={{
               firstName: '',

@@ -5,29 +5,59 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import './ResetPass.css';
-import { auth } from '../../Firebase'; 
+import { auth, sendPasswordResetEmail } from '../../Firebase'; 
 import Footer from '../../components/Footer/Footer';
 import CustomNavbar from '../../components/Navbar/Navbar';
 import { JuegosContext } from '../../context/JuegosContext';  
 import Destacado from '../../components/Destacado/Destacado';
+import Swal from 'sweetalert2'; 
 
 function ResetPass() {
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');  
+  const [loading, setLoading] = useState(false);
 
-  const { juegos } = useContext(JuegosContext);
+const { juegos } = useContext(JuegosContext);
+const juegosDestacados = juegos.filter((juego) => juego.Destacado === true);
 
-  
-  const juegosDestacados = juegos.filter((juego) => juego.Destacado === true);
-
-  const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    console.log('Email enviado:', email);
+
+    if (!email) {
+      Swal.fire({
+        icon: 'error',
+        title: '¡Oops!',
+        text: 'Por favor, ingresa un email válido.',
+      });
+      return;
+    }
+
+    setLoading(true);  
+
+    try {
+      await sendPasswordResetEmail(auth, email);  
+
+      Swal.fire({
+        icon: 'success',
+        title: '¡Correo enviado!',
+        text: 'Te hemos enviado un correo para restablecer tu contraseña.',
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Hubo un error al intentar enviar el correo. Intenta nuevamente.',
+      });
+      console.error(error);  
+    } finally {
+      setLoading(false);  
+    }
   };
+
 
   return (
     <div>
-        <Destacado juegosDestacados={juegosDestacados} />
+      <Destacado juegosDestacados={juegosDestacados} />
       <Container className="d-flex justify-content-center align-items-center mt-2 mb-2"
         style={{ minHeight: 'auto', marginTop: '20px' }}>
         <Card className="card-reset" style={{ width: '100%', maxWidth: '800px' }}>
@@ -50,8 +80,8 @@ function ResetPass() {
                   </Form.Text>
                 </Form.Group>
                 <div className="d-flex">
-                  <Button variant="secondary" type="submit">
-                    Enviar
+                  <Button variant="secondary" type="submit" disabled={loading}>
+                    {loading ? 'Enviando...' : 'Enviar'}
                   </Button>
                 </div>
               </Form>
@@ -65,7 +95,6 @@ function ResetPass() {
         </Card>
       </Container>
 
-      
       <Footer />
     </div>
   );

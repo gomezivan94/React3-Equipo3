@@ -9,6 +9,7 @@ import CustomNavbar from './components/Navbar/Navbar';
 import { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './Firebase';
+import ResetPass from './pages/ResetPass/ResetPass';
 
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='*' element={<Error404/>}/>
+          <Route path="/resetpass" element={<ResetPass/>} />
           <Route path="/admin" 
           element={
             <ProtectedRoutes>

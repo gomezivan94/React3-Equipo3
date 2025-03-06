@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import "./ModalLogin.css";
 import Swal from 'sweetalert2';
 import ModalRegitro from '../ModalRegistro/ModalRegistro';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { auth, googleProvider, signInWithPopup, signInWithEmailAndPassword } from '../../Firebase';
 import { FaGoogle } from 'react-icons/fa';
 
@@ -118,9 +118,13 @@ return (
         Inicia Sesion con Google
       </Button></div>
       <div className='text-start'><h6>Olvidaste tu contraseña? Sigue estos pasos para restablecerla.</h6></div>
-      <div><Button variant="secondary">
-        Restablecer Contraseña
-      </Button></div>
+      <div>
+      <Link to="/resetpass">
+        <Button variant="secondary" onClick={handleClose}>
+          Restablecer Contraseña
+        </Button>
+      </Link>
+    </div>
         
      
 

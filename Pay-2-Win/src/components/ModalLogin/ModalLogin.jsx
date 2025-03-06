@@ -5,8 +5,8 @@ import Form from 'react-bootstrap/Form';
 import "./ModalLogin.css";
 import Swal from 'sweetalert2';
 import ModalRegitro from '../ModalRegistro/ModalRegistro';
-import { useNavigate } from 'react-router-dom';
-import { auth, googleProvider, signInWithPopup } from '../../Firebase';
+import { useNavigate, Link } from 'react-router-dom';
+import { auth, googleProvider, signInWithPopup, signInWithEmailAndPassword } from '../../Firebase';
 import { FaGoogle } from 'react-icons/fa';
 
 
@@ -38,7 +38,7 @@ const ModalLogin = ({show, handleClose}) => {
     };
   
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
       const email = emailRef.current.value;
       const password = passwordRef.current.value;
 
@@ -56,12 +56,28 @@ const ModalLogin = ({show, handleClose}) => {
       });
       return;
     }
-    Swal.fire ({
-      icon: 'success',
-      text: 'Bienvenido! Has iniciado sesion!',
-    });
-    handleClose(); 
-    };
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      Swal.fire({
+        icon: 'success',
+        text: 'Bienvenido! Has iniciado sesión!',
+      });
+      handleClose();
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        html: `
+            El email no corresponde a ningun usuario. Si no tienes una cuenta, resgistrate.
+            <br>
+            <a href="/register">
+              <button class="swal2-confirm swal2-styled" style="margin-top: 10px;">Registrarse</button>
+            </a>
+          `,
+      });
+    }
+  };
+
    
     const handleRegister = () => {
       navigate('/register');
@@ -98,9 +114,17 @@ return (
         <div><Button variant="secondary" onClick={handleLogin}>
         Inicia Sesion
       </Button></div>
-      <div className='mt-2'> <Button variant="secondary" onClick={handleGoogleLogin}> <FaGoogle style={{ marginRight: '8px' }} />
+      <div className='mt-2 mb-3'> <Button variant="secondary" onClick={handleGoogleLogin}> <FaGoogle style={{ marginRight: '8px' }} />
         Inicia Sesion con Google
       </Button></div>
+      <div className='text-start'><h6>Olvidaste tu contraseña? Sigue estos pasos para restablecerla.</h6></div>
+      <div>
+      <Link to="/resetpass">
+        <Button variant="secondary" onClick={handleClose}>
+          Restablecer Contraseña
+        </Button>
+      </Link>
+    </div>
         
      
 

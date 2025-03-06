@@ -1,10 +1,11 @@
-import React from 'react'
+import { Error, Footer } from '../../components'
 
 function Error404() {
-  return (
-    <div>
-      Error404
-    </div>
+  return (<>
+    
+    <Error/>
+    <Footer/>
+    </>
   )
 }
 

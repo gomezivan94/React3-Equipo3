@@ -1,0 +1,25 @@
+
+.card {
+
+    margin: 20px;
+
+}
+
+
+p {
+    color:azure;
+
+}
+
+
+
+.Titulo {
+    color: azure;
+}
+
+.nosotros-card:hover {
+    transform: scale(1.1);
+    z-index: 2;
+
+}
+

@@ -65,10 +65,7 @@ function Admin() {
 
   return (
     <>
-<<<<<<< HEAD
-=======
     
->>>>>>> 35520a61bb9b3b093679f38f982b3ba8038140fc
     <div className="container text-white text-center">
       <h2>Administrar Juegos</h2>
 

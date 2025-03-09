@@ -22,3 +22,46 @@
     .redes:hover{
         transform: scale(1.2);
     }
+ 
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+ 
+  .swiper-container {
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+
+  .gameCard {
+    border: 1px solid #444;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 100%; 
+    max-width: 350px; 
+    margin: 0 auto; 
+  }
+  
+
+  @media (max-width: 768px) {
+    .games-container {
+      gap: 8px;
+      padding: 8px; 
+    }
+  
+    .gameCard {
+      max-width: 100%;
+    }
+  }
+  
+
+  @media (max-width: 480px) {
+    .gameCard {
+      max-width: 100%; 
+    }
+  }

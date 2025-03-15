@@ -7,9 +7,16 @@
 }
 
 .slide-destacado{
+    object-fit: cover;
     height: 50vh;
 }
 
 .card-destacado{
     height: 100%;
+}
+
+@media (max-width: 768px) {
+    .slide-destacado {
+        height: auto;
+    }
 }

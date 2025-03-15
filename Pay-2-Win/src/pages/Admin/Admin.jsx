@@ -69,7 +69,7 @@ function Admin() {
   };
 
   const handleConfirmEdit = () => {
-    // Validaciones
+
     if (!nuevoJuego.Title || !nuevoJuego.Description || !nuevoJuego.Precio || !nuevoJuego.Type || !nuevoJuego.Header || !nuevoJuego.Trailer) {
       alert('Por favor, complete todos los campos.');
       return;
@@ -86,7 +86,7 @@ function Admin() {
   };
 
   const handleDelete = (id) => {
-    // Mostrar ventana de confirmación antes de eliminar
+
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este juego?');
     if (confirmacion) {
       eliminarJuego(id);
@@ -95,7 +95,7 @@ function Admin() {
     }
   };
 
-  // Páginas
+
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(juegos.length / gamesPerPage); i++) {
     pageNumbers.push(i);
@@ -106,7 +106,7 @@ function Admin() {
       <div className="container text-white text-center">
         <h2>Administrar Juegos</h2>
 
-        {/* Botón Agregar Juego */}
+
         <button 
           className="btn btn-success mb-3" 
           data-bs-toggle="modal" 
@@ -131,7 +131,7 @@ function Admin() {
           ))}
         </div>
 
-        {/* Botones de Paginación */}
+
         <nav>
           <ul className="pagination d-flex justify-content-center">
             {pageNumbers.map((number) => (
@@ -144,7 +144,7 @@ function Admin() {
           </ul>
         </nav>
 
-        {/* Modal de Agregar Juego */}
+
         <div className="modal fade" id="addModal" tabIndex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">
@@ -191,7 +191,7 @@ function Admin() {
           </div>
         </div>
 
-        {/* MODAL DE EDICIÓN */}
+
         <div className="modal fade" id="editModal" tabIndex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">

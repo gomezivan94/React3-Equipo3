@@ -38,6 +38,16 @@ function Admin() {
   };
 
   const handleAgregarJuego = () => {
+    if (!nuevoJuego.Title || !nuevoJuego.Description || !nuevoJuego.Precio || !nuevoJuego.Type || !nuevoJuego.Header || !nuevoJuego.Trailer) {
+      alert('Por favor, complete todos los campos.');
+      return;
+    }
+    
+    if (nuevoJuego.Title.length > 25) {
+      alert('El título no puede tener más de 25 caracteres.');
+      return;
+    }
+  
     const idNuevoJuego = juegos.length ? juegos[juegos.length - 1].id + 1 : 1; 
     const juegoParaAgregar = { id: idNuevoJuego, ...nuevoJuego };
     agregarJuego(juegoParaAgregar);
@@ -59,6 +69,17 @@ function Admin() {
   };
 
   const handleConfirmEdit = () => {
+    // Validaciones
+    if (!nuevoJuego.Title || !nuevoJuego.Description || !nuevoJuego.Precio || !nuevoJuego.Type || !nuevoJuego.Header || !nuevoJuego.Trailer) {
+      alert('Por favor, complete todos los campos.');
+      return;
+    }
+  
+    if (nuevoJuego.Title.length > 25) {
+      alert('El título no puede tener más de 25 caracteres.');
+      return;
+    }
+  
     editarJuego(editingId, nuevoJuego); 
     setIsEditing(false);
     setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '', Destacado: '' }); 

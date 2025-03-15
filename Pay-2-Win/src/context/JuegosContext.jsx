@@ -15,18 +15,22 @@ export const JuegosProvider = ({ children }) => {
 
 
   const agregarJuego = (nuevoJuego) => {
-    const juegosActualizados = [...juegos, nuevoJuego];
-    setJuegos(juegosActualizados);
-    localStorage.setItem('juegos', JSON.stringify(juegosActualizados));
+    setJuegos((prevJuegos) => {
+      const juegosActualizados = [...prevJuegos, nuevoJuego];
+      localStorage.setItem('juegos', JSON.stringify(juegosActualizados));
+      return juegosActualizados;
+    });
   };
 
 
   const editarJuego = (id, juegoEditado) => {
-    const juegosActualizados = juegos.map((juego) =>
-      juego.id === id ? { ...juego, ...juegoEditado } : juego
-    );
-    setJuegos(juegosActualizados);
-    localStorage.setItem('juegos', JSON.stringify(juegosActualizados));
+    setJuegos((prevJuegos) => {
+      const juegosActualizados = prevJuegos.map((juego) =>
+        juego.id === id ? { ...juego, ...juegoEditado } : juego
+      );
+      localStorage.setItem('juegos', JSON.stringify(juegosActualizados));
+      return juegosActualizados;
+    });
   };
 
  

@@ -160,7 +160,7 @@ function Register() {
     console.error('Error al crear el usuario:', error.message);
     Swal.fire({
       icon: 'error',
-      text: 'Hubo un error al crear tu cuenta. Intenta nuevamente.',
+      text: 'Ya existe un registro con este email, por favor verifica que esté bien escrito.',
     });
   }
 

@@ -155,6 +155,9 @@ function Register() {
       title: '¡Registrado exitosamente! Bienvenido a Pay2Win!',
       text: 'Se te ha enviado un correo para verificar tu email, por favor revisa tu bandeja de entrada.',
     });
+
+    handleClear();
+    
   } catch (error) {
   
     console.error('Error al crear el usuario:', error.message);
@@ -297,7 +300,7 @@ function Register() {
         <Form.Check type="checkbox" label="Recibir por email las ultimas actualizaciones." />
       </Form.Group>
       <div className="d-flex"> 
-        <Button variant="secondary"   type="submit">
+        <Button variant="secondary"   type="submit" >
         Registrarme
       </Button>
       </div>

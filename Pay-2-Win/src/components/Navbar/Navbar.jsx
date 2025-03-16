@@ -40,7 +40,7 @@ const handleLogout = async () => {
           <Nav.Link href="/"><span>Inicio</span></Nav.Link>
           <Nav.Link href="/about"><span>Nosotros</span></Nav.Link>
           <Nav.Link href="/contact"><span>Contacto</span></Nav.Link>
-          <Nav.Link href="/admin"><span>Admin</span></Nav.Link>
+          {user &&<Nav.Link href="/admin"><span>Admin</span></Nav.Link>}
           {!user ? (
             <Nav.Link onClick={handleShow}><FaSignInAlt className="icon-size" /> Iniciar sesión</Nav.Link>
           ) : (

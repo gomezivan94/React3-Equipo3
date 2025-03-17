@@ -4,6 +4,9 @@ import Swal from 'sweetalert2'
 import emailjs from '@emailjs/browser'
 import Footer from "../Footer/Footer"
 import './ContactForm.css'
+import { JuegosContext } from '../../context/JuegosContext';  
+import Destacado from '../../components/Destacado/Destacado';
+import { useContext } from "react"
 
 const validationSchema = Yup.object({
     firstName: Yup.string().required('First name is Required'),
@@ -17,6 +20,8 @@ const validationSchema = Yup.object({
 
 
 function ContactForm() {
+   const { juegos } = useContext(JuegosContext);
+   const juegosDestacados = juegos.filter((juego) => juego.Destacado === true);
 
     const handleSubmit = (values, {resetForm}) => {
 
@@ -67,6 +72,9 @@ function ContactForm() {
 
     return (
         <>
+        <div>
+        <Destacado juegosDestacados={juegosDestacados} />
+        </div>
         <div className="container contactform">
           <h1 className="text-grey pt-2 text-center">Contactanos!</h1>
         </div>

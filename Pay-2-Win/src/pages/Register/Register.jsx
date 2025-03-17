@@ -157,7 +157,7 @@ function Register() {
     });
 
     handleClear();
-    
+
   } catch (error) {
   
     console.error('Error al crear el usuario:', error.message);

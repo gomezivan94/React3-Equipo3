@@ -20,6 +20,7 @@ import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/
 
 
 
+
 function Register() {
   
   const [nombre, setNombre] = useState('');
@@ -30,6 +31,8 @@ function Register() {
   const [birthDate, setBirthDate] = useState(null);
   const [pais, setPais] = useState('');
   const [paises, setPaises] = useState([]);
+  const { juegos } = useContext(JuegosContext);
+  const juegosDestacados = juegos.filter((juego) => juego.Destacado === true);
 
   useEffect(() => {
     const fetchPaises = async () => {
@@ -214,7 +217,7 @@ function Register() {
     <div>
 
       
-      
+       <Destacado juegosDestacados={juegosDestacados} />
         <Container className="d-flex justify-content-center align-items-center mt-2 mb-2"
         style={{ minHeight: '100vh', marginTop: '-30px' }}>
           <Card className='card-registro' style={{ width: '100%', maxWidth: '800px' }}>

@@ -20,6 +20,7 @@ import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/
 
 
 
+
 function Register() {
   
   const [nombre, setNombre] = useState('');
@@ -30,6 +31,8 @@ function Register() {
   const [birthDate, setBirthDate] = useState(null);
   const [pais, setPais] = useState('');
   const [paises, setPaises] = useState([]);
+  const { juegos } = useContext(JuegosContext);
+  const juegosDestacados = juegos.filter((juego) => juego.Destacado === true);
 
   useEffect(() => {
     const fetchPaises = async () => {
@@ -155,12 +158,15 @@ function Register() {
       title: '¡Registrado exitosamente! Bienvenido a Pay2Win!',
       text: 'Se te ha enviado un correo para verificar tu email, por favor revisa tu bandeja de entrada.',
     });
+
+    handleClear();
+
   } catch (error) {
   
     console.error('Error al crear el usuario:', error.message);
     Swal.fire({
       icon: 'error',
-      text: 'Hubo un error al crear tu cuenta. Intenta nuevamente.',
+      text: 'Ya existe un registro con este email, por favor verifica que esté bien escrito.',
     });
   }
 
@@ -211,7 +217,7 @@ function Register() {
     <div>
 
       
-      
+       <Destacado juegosDestacados={juegosDestacados} />
         <Container className="d-flex justify-content-center align-items-center mt-2 mb-2"
         style={{ minHeight: '100vh', marginTop: '-30px' }}>
           <Card className='card-registro' style={{ width: '100%', maxWidth: '800px' }}>
@@ -297,7 +303,7 @@ function Register() {
         <Form.Check type="checkbox" label="Recibir por email las ultimas actualizaciones." />
       </Form.Group>
       <div className="d-flex"> 
-        <Button variant="secondary"   type="submit">
+        <Button variant="secondary"   type="submit" >
         Registrarme
       </Button>
       </div>

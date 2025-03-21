@@ -31,24 +31,27 @@ const handleLogout = async () => {
 };
 
   return (
-    <BootstrapNavbar className='sticky-top navigator ' data-bs-theme="dark">
-      <Container className='d-flex flex-row row-12'>
-        <BootstrapNavbar.Brand href="/"><img src={logo} alt="logo" width="150px"/></BootstrapNavbar.Brand>
-        <Nav>
+  <BootstrapNavbar expand="lg" className='sticky-top navigator' data-bs-theme="dark">
+    <Container>
+      <BootstrapNavbar.Brand href="/"><img src={logo} alt="logo" width="150px"/></BootstrapNavbar.Brand>
+      <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
+      <BootstrapNavbar.Collapse id="basic-navbar-nav">
+        <Nav className="ms-auto">
           <Nav.Link href="/"><span>Inicio</span></Nav.Link>
           <Nav.Link href="/about"><span>Nosotros</span></Nav.Link>
           <Nav.Link href="/contact"><span>Contacto</span></Nav.Link>
-          <Nav.Link href="/admin"><span>Admin</span></Nav.Link>
+          {user &&<Nav.Link href="/admin"><span>Admin</span></Nav.Link>}
           {!user ? (
-  <Nav.Link onClick={handleShow}><FaSignInAlt className="icon-size" /> Iniciar sesión</Nav.Link>
-) : (
-  <Nav.Link onClick={handleLogout}><FaSignOutAlt className="icon-size" /> Cerrar sesión</Nav.Link>
-)}
+            <Nav.Link onClick={handleShow}><FaSignInAlt className="icon-size" /> Iniciar sesión</Nav.Link>
+          ) : (
+            <Nav.Link onClick={handleLogout}><FaSignOutAlt className="icon-size" /> Cerrar sesión</Nav.Link>
+          )}
         </Nav>
-        <ModalLogin show={show} handleClose={handleClose} />
-      </Container>
-    </BootstrapNavbar>
-  );
+      </BootstrapNavbar.Collapse>
+      <ModalLogin show={show} handleClose={handleClose} />
+    </Container>
+  </BootstrapNavbar>
+);
 }
 
 export default CustomNavbar;

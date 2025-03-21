@@ -4,7 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import "./ModalLogin.css";
 import Swal from 'sweetalert2';
-import ModalRegitro from '../ModalRegistro/ModalRegistro';
 import { useNavigate, Link } from 'react-router-dom';
 import { auth, googleProvider, signInWithPopup, signInWithEmailAndPassword } from '../../Firebase';
 import { FaGoogle } from 'react-icons/fa';
@@ -88,8 +87,9 @@ const ModalLogin = ({show, handleClose}) => {
  
 
 return (
+  
     
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} style={{ width: '100%', maxWidth: '100%' }}>
     <Modal.Header closeButton>
       <Modal.Title>Inicia Sesion</Modal.Title>
     </Modal.Header>

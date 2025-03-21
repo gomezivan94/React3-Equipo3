@@ -1,5 +1,6 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { JuegosProvider } from './context/JuegosContext';
 import {Home, Admin, JuegoDetalle, About, Contact, Error404, Register, Nosotros} from './pages'

@@ -3,6 +3,10 @@ import * as Yup from 'yup'
 import Swal from 'sweetalert2'
 import emailjs from '@emailjs/browser'
 import Footer from "../Footer/Footer"
+import './ContactForm.css'
+import { JuegosContext } from '../../context/JuegosContext';  
+import Destacado from '../../components/Destacado/Destacado';
+import { useContext } from "react"
 
 const validationSchema = Yup.object({
     firstName: Yup.string().required('First name is Required'),
@@ -16,6 +20,8 @@ const validationSchema = Yup.object({
 
 
 function ContactForm() {
+   const { juegos } = useContext(JuegosContext);
+   const juegosDestacados = juegos.filter((juego) => juego.Destacado === true);
 
     const handleSubmit = (values, {resetForm}) => {
 
@@ -66,8 +72,15 @@ function ContactForm() {
 
     return (
         <>
-        <h1 className="text-white pt-2 text-center">Contactanos!</h1>
-    <div className="container d-flex align-items-center my-5 text-white">
+        <div>
+        <Destacado juegosDestacados={juegosDestacados} />
+        </div>
+        <div className="container contactform">
+          <h1 className="text-grey pt-2 text-center">Contactanos!</h1>
+        </div>
+        
+    <div className="container contactform d-flex align-items-center my-5 text-grey">
+      
         <div className="container">
             <div className="d-flex align-items-center justify-content-center">
             </div>
@@ -149,7 +162,7 @@ function ContactForm() {
                   />
                   <ErrorMessage component="div" name="comments" className="invalid-feedback" />
                 </div>
-                <button type="submit" className="btn btn-success btn-lg mb-5">
+                <button type="submit" className="btn botonenviar btn-success btn-lg mb-5">
                   Enviar
                 </button>
               </Form>

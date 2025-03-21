@@ -1,5 +1,4 @@
 import { Link, useParams } from 'react-router-dom'
-import CustomNavbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
 
@@ -14,15 +13,17 @@ function JuegoDetalle() {
   
     return (
       <>
-        <h1 className='text-white mt-5'>{juego.Title}</h1>
+        <h1 className='text-white mt-1'>{juego.Title}</h1>
+        
+        <div className='px-2 mt-3 row-6 d-flex align-items-center justify-content-center mb-2'>
+        <img className='' src={juego.Header} alt="Portada" width={'75%'} height={'60%'}/>
+          </div>
         <div className='text-white d-flex align-items-center justify-content-around'>
-          <div className='px-2 mt-4 row-6'>
-            <video alt={juego.Title} style={{ width: '60vw', height: '100%'}} autoPlay muted controls loop>
+          
+          <div className='d-flex flex-column align-items-start'>
+          <video alt={juego.Title} style={{ width: '60vw', height: '100%'}} autoPlay muted controls loop>
               <source src={juego.Trailer} />
             </video>
-          </div>
-          <div className='d-flex flex-column align-items-start col-6'>
-            <img src={juego.Header} alt="Portada" width={'100%'} height={'60%'}/>
             <p className=''>{juego.Description}</p>
             <p>Categoría: {juego.Type}</p>
             <p>Precio: ${juego.Precio}</p>

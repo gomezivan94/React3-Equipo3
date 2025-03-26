@@ -27,7 +27,6 @@ function Nosotros() {
      Actualmente, por cursar 5to año de Ing. En sistemas de Información.Me gusta hacer deporte, disfrutar con amigos y aprender cosas nuevas.</p>
     </div>
      <div className="presentacion">
-    
      <img src={Ivan} class=" tarjeta" height={400} width={200} alt="..."></img>
      <p className='parrafo'>Iván Gomez, 31 años, Soporte IT / Help Desk. Disfruto aprender tecnologias nuevas y jugar videojuegos</p>
      </div>
@@ -40,3 +39,4 @@ function Nosotros() {
    }
    
    export default Nosotros 
+   

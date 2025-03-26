@@ -16,6 +16,12 @@
     height: auto; 
   }
   
+  @media (min-width: 992px) {
+    .col-lg-6 {
+        width: 100%; 
+    }
+
+}
  
   @media (max-width: 768px) {
     .col-lg-6 {

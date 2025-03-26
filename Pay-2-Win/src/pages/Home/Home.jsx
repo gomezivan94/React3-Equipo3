@@ -41,7 +41,7 @@ function Home() {
   }, {});
 
   return (
-    <div>
+    <div id='Arriba'>
       {juegosDestacados.length > 0 && <Destacado juegosDestacados={juegosDestacados} />}
 
       {Object.entries(juegosPorCategoria).map(([categoria, juegosDeCategoria]) => (
@@ -65,6 +65,7 @@ function Home() {
           </Container>
         </div>
       ))}
+      <button className='btn btn-light sticky-bottom'><a href="#Arriba">🔝</a></button>
 
       <Footer />
     </div>

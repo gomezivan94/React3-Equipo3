@@ -12,12 +12,7 @@ function Error() {
 
   return (
     <div>
-      
-      <div>
-        <Destacado juegosDestacados={juegosDestacados} />
-      </div>
   
-      
       <div className="error-card-container">
         <Card className="text-center container errorcard">
           <Card.Body>

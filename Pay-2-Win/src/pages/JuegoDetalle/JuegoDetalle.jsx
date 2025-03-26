@@ -20,14 +20,9 @@ function JuegoDetalle() {
   return (
     <>
     <div>
-        <Destacado juegosDestacados={juegosDestacados} />
+        
       </div>
-      <h1 className='text-white mt-1'>{juego.Title}</h1>
-
-      <div className='px-2 mt-3 row-6 d-flex align-items-center justify-content-center mb-2'>
-        <img className='' src={juego.Header} alt="Portada" width={'75%'} height={'60%'}/>
-      </div>
-
+      <h1 className='text-white mt-1 text-center'>{juego.Title}</h1>
       <div className='text-white d-flex align-items-center justify-content-around'>
         <div className='d-flex flex-column align-items-center'>
           <video 
@@ -47,7 +42,8 @@ function JuegoDetalle() {
           <Link className='btn btn-primary' to="*">Comprar</Link>
         </div>
       </div>
-      
+      <div><h3 className='text-white text-center mt-5 mb-3'>Seguir Explorando...</h3></div>
+      <Destacado juegosDestacados={juegosDestacados} />
       <Footer />
     </>
   );

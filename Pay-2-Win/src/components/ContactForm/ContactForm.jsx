@@ -72,9 +72,6 @@ function ContactForm() {
 
     return (
         <>
-        <div>
-        <Destacado juegosDestacados={juegosDestacados} />
-        </div>
         <div className="container contactform">
           <h1 className="text-grey pt-2 text-center">Contactanos!</h1>
         </div>

@@ -11,8 +11,7 @@ function Admin() {
     Precio: '',
     Type: '',
     Header: '', 
-    Trailer: '', 
-    Destacado: ''
+    Trailer: ''
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -51,7 +50,7 @@ function Admin() {
     const idNuevoJuego = juegos.length ? juegos[juegos.length - 1].id + 1 : 1; 
     const juegoParaAgregar = { id: idNuevoJuego, ...nuevoJuego };
     agregarJuego(juegoParaAgregar);
-    setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '', Destacado: '' });
+    setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '' });
   };
 
   const handleEdit = (juego) => {
@@ -63,8 +62,7 @@ function Admin() {
       Precio: juego.Precio,
       Type: juego.Type,
       Header: juego.Header,
-      Trailer: juego.Trailer,
-      Destacado: juego.Destacado
+      Trailer: juego.Trailer
     });
   };
 
@@ -82,7 +80,7 @@ function Admin() {
   
     editarJuego(editingId, nuevoJuego); 
     setIsEditing(false);
-    setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '', Destacado: '' }); 
+    setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '' }); 
   };
 
   const handleDelete = (id) => {
@@ -177,10 +175,6 @@ function Admin() {
                   <div className="mb-3">
                     <label htmlFor="Trailer" className="form-label">URL del Tráiler</label>
                     <input type="text" className="form-control" id="Trailer" name="Trailer" value={nuevoJuego.Trailer} onChange={handleNuevoJuegoChange} />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="Destacado" className="form-label">Juego Destacado</label>
-                    <input className="m-2" type="checkbox" id="Destacado" name="Destacado" checked={nuevoJuego.Destacado === "true"} onChange={handleNuevoJuegoChange} />
                   </div>
                   <button type="button" className="btn btn-primary" onClick={handleAgregarJuego} data-bs-dismiss="modal">
                     Agregar Juego

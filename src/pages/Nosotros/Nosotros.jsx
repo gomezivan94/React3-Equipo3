@@ -18,15 +18,6 @@ function Nosotros() {
      <p className='parrafo'>Me llamo Natividad, tengo 34 años, soy Tecnica de Laboratorio, trabajo en una clinica, me gusta viajar, hacer trekking, el contacto con la naturaleza, amante del café, el chocolate y el vino, de vez en cuando suelo participar en talleres al respecto.</p>
      </div>
      <div className="presentacion">
-     <img src={maxi} class="tarjeta" height={400} width={200} alt="..."></img>
-     <p className='parrafo'>Me llamo Maximiliano Gamboa tengo 21 años estudio en la UNSTA (desarrollo de software),en la aticana curso de inglés ,me gusta jugar juego en la compu ,caminar y ir al gimnasio</p>
-     </div>
-     <div className="presentacion">
-     <img src={Santi} class="tarjeta" height={400} width={200} alt="..."></img>
-     <p className='parrafo'>Santiago Nieva Glembocki, 22 años.
-     Actualmente, por cursar 5to año de Ing. En sistemas de Información.Me gusta hacer deporte, disfrutar con amigos y aprender cosas nuevas.</p>
-    </div>
-     <div className="presentacion">
      <img src={Ivan} class=" tarjeta" height={400} width={200} alt="..."></img>
      <p className='parrafo'>Iván Gomez, 31 años, Soporte IT / Help Desk. Disfruto aprender tecnologias nuevas y jugar videojuegos</p>
      </div>

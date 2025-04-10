@@ -88,8 +88,6 @@ function Admin() {
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este juego?');
     if (confirmacion) {
       eliminarJuego(id);
-    } else {
-      console.log('Eliminación cancelada');
     }
   };
 
@@ -154,27 +152,27 @@ function Admin() {
                 <form>
                   <div className="mb-3">
                     <label htmlFor="Title" className="form-label">Título</label>
-                    <input type="text" className="form-control" id="Title" name="Title" value={nuevoJuego.Title} onChange={handleNuevoJuegoChange} />
+                    <input type="text" className="form-control" id="Title" name="Title"  onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Description" className="form-label">Descripción</label>
-                    <textarea className="form-control" id="Description" name="Description" value={nuevoJuego.Description} onChange={handleNuevoJuegoChange} />
+                    <textarea className="form-control" id="Description" name="Description"  onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Precio" className="form-label">Precio</label>
-                    <input type="number" className="form-control" id="Precio" name="Precio" value={nuevoJuego.Precio} onChange={handleNuevoJuegoChange} />
+                    <input type="number" className="form-control" id="Precio" name="Precio"  onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Type" className="form-label">Categoría</label>
-                    <input type="text" className="form-control" id="Type" name="Type" value={nuevoJuego.Type} onChange={handleNuevoJuegoChange} />
+                    <input type="text" className="form-control" id="Type" name="Type"  onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Header" className="form-label">URL de la Portada</label>
-                    <input type="text" className="form-control" id="Header" name="Header" value={nuevoJuego.Header} onChange={handleNuevoJuegoChange} />
+                    <input type="text" className="form-control" id="Header" name="Header"  onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Trailer" className="form-label">URL del Tráiler</label>
-                    <input type="text" className="form-control" id="Trailer" name="Trailer" value={nuevoJuego.Trailer} onChange={handleNuevoJuegoChange} />
+                    <input type="text" className="form-control" id="Trailer" name="Trailer"  onChange={handleNuevoJuegoChange} />
                   </div>
                   <button type="button" className="btn btn-primary" onClick={handleAgregarJuego} data-bs-dismiss="modal">
                     Agregar Juego
@@ -218,10 +216,6 @@ function Admin() {
                   <div className="mb-3">
                     <label htmlFor="Trailer" className="form-label">URL del Tráiler</label>
                     <input type="text" className="form-control" id="Trailer" name="Trailer" value={nuevoJuego.Trailer} onChange={handleNuevoJuegoChange} />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="Destacado" className="form-label">Juego Destacado</label>
-                    <input className="m-2" type="checkbox" id="Destacado" name="Destacado" checked={nuevoJuego.Destacado === "true"} onChange={handleNuevoJuegoChange} />
                   </div>
                   <button type="button" className="btn btn-primary" onClick={handleConfirmEdit} data-bs-dismiss="modal">
                     Confirmar Edición

@@ -4,24 +4,20 @@ import Swal from 'sweetalert2'
 import emailjs from '@emailjs/browser'
 import Footer from "../Footer/Footer"
 import './ContactForm.css'
-import { JuegosContext } from '../../context/JuegosContext';  
-import Destacado from '../../components/Destacado/Destacado';
-import { useContext } from "react"
 
 const validationSchema = Yup.object({
-    firstName: Yup.string().required('First name is Required'),
-    lastName: Yup.string().required('Last name is Required'),
-    email: Yup.string().email('Invalid email address').required('Email address is Required'),
-    phone: Yup.string().matches(/^[0-9]+$/, 'Must be a number').required('Phone number is Required'),
-    comments: Yup.string().required('Comments are Required')
+    firstName: Yup.string().required('First name is Required').max(25, 'Nombre no puede ser mayor a 25 caracteres'),
+    lastName: Yup.string().required('Last name is Required').max(25, 'Apellido no puede ser mayor a 25 caracteres'),
+    email: Yup.string().email('Invalid email address').required('Email address is Required').max(40, 'Email no puede ser mayor a 40 caracteres'),
+    phone: Yup.string().matches(/^[0-9]+$/, 'Must be a number').required('Phone number is Required').max(20, 'Telefono no puede ser mayor a 20 caracteres').min(8, 'Telefono no pueder ser menor a 30 caracteres'),
+    comments: Yup.string().required('Comments are Required').max(250, 'Comentarios no puede ser mayor a 250 caracteres').min(30, 'comentarios no pueder ser menor a 30 caracteres')
     
 })
 
 
 
 function ContactForm() {
-   const { juegos } = useContext(JuegosContext);
-   const juegosDestacados = juegos.filter((juego) => juego.Destacado === true);
+
 
     const handleSubmit = (values, {resetForm}) => {
 

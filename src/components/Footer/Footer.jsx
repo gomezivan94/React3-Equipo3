@@ -21,7 +21,7 @@ const Footer = () => {
             </small>
           </Col>    
           <Col md={4} className="text-center mt-3">
-            <h5>Síguenos</h5>
+            <h5 className='text-white'>Síguenos</h5>
             <div className="d-flex justify-content-center gap-3">
               <a href="https://www.facebook.com/" target='_blank' className="text-primary redes">
                 <FaFacebook size={25} />

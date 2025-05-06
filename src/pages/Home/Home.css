@@ -52,10 +52,45 @@
     .games-container {
       gap: 8px;
       padding: 8px; 
+      margin-bottom: 8px;
+      margin-top: 3rem;
+    }
+
+    .games-container ~ h2 {
+      margin-top: 2rem;
+    }
+  
+    h2 {
+      margin-bottom: 1.5rem;
     }
   
     .gameCard {
       max-width: 100%;
+      height: 450px; 
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .gameCard img {
+      height: 180px;
+      object-fit: cover;
+      width: 100%;
+    }
+  
+    .gameCard .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    .card-text {
+      max-height: 3.6em; 
+      line-height: 1.2em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      white-space: normal;
     }
   }
   

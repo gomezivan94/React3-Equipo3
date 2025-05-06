@@ -20,6 +20,8 @@ const GameCarousel = ({ games }) => {
         768: { slidesPerView: 2 },
         1024: { slidesPerView: 3 }, 
       }}
+
+      loop={true} 
     >
       {games.map((juego) => (
         <SwiperSlide key={juego.id}>

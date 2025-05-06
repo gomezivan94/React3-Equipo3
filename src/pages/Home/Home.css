@@ -47,6 +47,14 @@
     margin: 0 auto; 
   }
   
+  .card-text {
+    line-height: 1.2em;
+    max-height: 8.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+  
 
   @media (max-width: 768px) {
     .games-container {

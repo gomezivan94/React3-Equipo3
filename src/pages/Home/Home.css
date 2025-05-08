@@ -47,7 +47,7 @@
     margin: 0 auto; 
   }
   
-  .gameCard .card-text {
+   .gameCard .card-text {
     line-height: 1.2em;
     max-height: 8.4em;
     overflow: hidden;
@@ -93,8 +93,8 @@
       justify-content: space-between;
     }
   
-    .card-text {
-      max-height: 3.6em; 
+    .gameCard .card-text {
+      max-height: 2.4em; 
       line-height: 1.2em;
       overflow: hidden;
       text-overflow: ellipsis;

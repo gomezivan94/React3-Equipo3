@@ -19,14 +19,12 @@ function Admin() {
 
   // Paginación
   const [currentPage, setCurrentPage] = useState(1);
-  const gamesPerPage = 5; // Puedes cambiar el número de juegos por página según lo necesites.
+  const gamesPerPage = 5;
 
-  // Calcular los juegos a mostrar en la página actual
   const indexOfLastGame = currentPage * gamesPerPage;
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
   const currentGames = juegos.slice(indexOfFirstGame, indexOfLastGame);
 
-  // Cambiar de página
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleNuevoJuegoChange = (e) => {
@@ -41,12 +39,12 @@ function Admin() {
       alert('Por favor, complete todos los campos.');
       return;
     }
-    
+
     if (nuevoJuego.Title.length > 25) {
       alert('El título no puede tener más de 25 caracteres.');
       return;
     }
-  
+
     const idNuevoJuego = juegos.length ? juegos[juegos.length - 1].id + 1 : 1; 
     const juegoParaAgregar = { id: idNuevoJuego, ...nuevoJuego };
     agregarJuego(juegoParaAgregar);
@@ -67,30 +65,27 @@ function Admin() {
   };
 
   const handleConfirmEdit = () => {
-
     if (!nuevoJuego.Title || !nuevoJuego.Description || !nuevoJuego.Precio || !nuevoJuego.Type || !nuevoJuego.Header || !nuevoJuego.Trailer) {
       alert('Por favor, complete todos los campos.');
       return;
     }
-  
+
     if (nuevoJuego.Title.length > 25) {
       alert('El título no puede tener más de 25 caracteres.');
       return;
     }
-  
+
     editarJuego(editingId, nuevoJuego); 
     setIsEditing(false);
     setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '' }); 
   };
 
   const handleDelete = (id) => {
-
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este juego?');
     if (confirmacion) {
       eliminarJuego(id);
     }
   };
-
 
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(juegos.length / gamesPerPage); i++) {
@@ -101,7 +96,6 @@ function Admin() {
     <>
       <div className="container text-white text-center">
         <h2>Administrar Juegos</h2>
-
 
         <button 
           className="btn btn-success mb-3" 
@@ -127,7 +121,6 @@ function Admin() {
           ))}
         </div>
 
-
         <nav>
           <ul className="pagination d-flex justify-content-center">
             {pageNumbers.map((number) => (
@@ -140,7 +133,7 @@ function Admin() {
           </ul>
         </nav>
 
-
+        {/* Modal Agregar */}
         <div className="modal fade" id="addModal" tabIndex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">
@@ -152,27 +145,27 @@ function Admin() {
                 <form>
                   <div className="mb-3">
                     <label htmlFor="Title" className="form-label">Título</label>
-                    <input type="text" className="form-control" id="Title" name="Title"  onChange={handleNuevoJuegoChange} />
+                    <input type="text" className="form-control" id="Title" name="Title" value={nuevoJuego.Title} onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Description" className="form-label">Descripción</label>
-                    <textarea className="form-control" id="Description" name="Description"  onChange={handleNuevoJuegoChange} />
+                    <textarea className="form-control" id="Description" name="Description" value={nuevoJuego.Description} onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Precio" className="form-label">Precio</label>
-                    <input type="number" min={0} className="form-control" id="Precio" name="Precio"  onChange={handleNuevoJuegoChange} />
+                    <input type="number" min={0} className="form-control" id="Precio" name="Precio" value={nuevoJuego.Precio} onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Type" className="form-label">Categoría</label>
-                    <input type="text" className="form-control" id="Type" name="Type"  onChange={handleNuevoJuegoChange} />
+                    <input type="text" className="form-control" id="Type" name="Type" value={nuevoJuego.Type} onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Header" className="form-label">URL de la Portada</label>
-                    <input type="text" className="form-control" id="Header" name="Header"  onChange={handleNuevoJuegoChange} />
+                    <input type="text" className="form-control" id="Header" name="Header" value={nuevoJuego.Header} onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Trailer" className="form-label">URL del Tráiler</label>
-                    <input type="text" className="form-control" id="Trailer" name="Trailer"  onChange={handleNuevoJuegoChange} />
+                    <input type="text" className="form-control" id="Trailer" name="Trailer" value={nuevoJuego.Trailer} onChange={handleNuevoJuegoChange} />
                   </div>
                   <button type="button" className="btn btn-primary" onClick={handleAgregarJuego} data-bs-dismiss="modal">
                     Agregar Juego
@@ -183,7 +176,7 @@ function Admin() {
           </div>
         </div>
 
-
+        {/* Modal Editar */}
         <div className="modal fade" id="editModal" tabIndex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">

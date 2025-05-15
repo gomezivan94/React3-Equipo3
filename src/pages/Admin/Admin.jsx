@@ -203,7 +203,7 @@ function Admin() {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Precio" className="form-label">Precio</label>
-                    <input type="number" className="form-control" id="Precio" name="Precio" value={nuevoJuego.Precio} onChange={handleNuevoJuegoChange} />
+                    <input type="number" min={0} className="form-control" id="Precio" name="Precio" value={nuevoJuego.Precio} onChange={handleNuevoJuegoChange} />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Type" className="form-label">Categoría</label>

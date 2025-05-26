@@ -1,6 +1,6 @@
 # Pay2Win
 
-Deploy: https://pay2win-two.vercel.app/
+Deploy: https://pay2win-lime.vercel.app/
 
 Proyecto final de la comision React 3 de Rolling Code. 
 

@@ -1,5 +1,6 @@
 .destacado {
     margin-bottom: 2%;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;

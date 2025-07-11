@@ -16,8 +16,12 @@
     height: 100%;
 }
 
-@media (max-width: 768px) {
-    .slide-destacado {
-        height: auto;
+
+@media (max-width: 425px) {
+    .destacado {
+        height: 200px;
+    }
+    .slide-destacado{
+        object-fit: fill;
     }
 }

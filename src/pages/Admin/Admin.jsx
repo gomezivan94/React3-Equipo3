@@ -53,18 +53,24 @@ function Admin() {
   const handleAgregarJuego = () => {
     if (!nuevoJuego.Title || !nuevoJuego.Description || !nuevoJuego.Precio || !nuevoJuego.Type || !nuevoJuego.Header || !nuevoJuego.Trailer) {
       alert('Por favor, complete todos los campos.');
-      return;
+      return false;
+    }
+
+    if (Number(nuevoJuego.Precio) < 0) {
+      alert('El precio no puede ser negativo.');
+      return false;
     }
 
     if (nuevoJuego.Title.length > 25) {
       alert('El título no puede tener más de 25 caracteres.');
-      return;
+      return false;
     }
 
     const idNuevoJuego = juegos.length ? juegos[juegos.length - 1].id + 1 : 1; 
     const juegoParaAgregar = { id: idNuevoJuego, ...nuevoJuego };
     agregarJuego(juegoParaAgregar);
     setNuevoJuego({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '' });
+    return true;
   };
 
   const handleEdit = (juego) => {
@@ -83,17 +89,23 @@ function Admin() {
   const handleConfirmEdit = () => {
     if (!juegoEditando.Title || !juegoEditando.Description || !juegoEditando.Precio || !juegoEditando.Type || !juegoEditando.Header || !juegoEditando.Trailer) {
       alert('Por favor, complete todos los campos.');
-      return;
+      return false;
+    }
+
+    if (Number(juegoEditando.Precio) < 0) {
+      alert('El precio no puede ser negativo.');
+      return false;
     }
 
     if (juegoEditando.Title.length > 25) {
       alert('El título no puede tener más de 25 caracteres.');
-      return;
+      return false;
     }
 
     editarJuego(editingId, juegoEditando); 
     setIsEditing(false);
     setJuegoEditando({ Title: '', Description: '', Precio: '', Type: '', Header: '', Trailer: '' }); 
+    return true;
   };
 
   const handleDelete = (id) => {
@@ -184,7 +196,17 @@ function Admin() {
                     <label htmlFor="Trailer" className="form-label">URL del Tráiler</label>
                     <input type="text" className="form-control" id="Trailer" name="Trailer" value={nuevoJuego.Trailer} onChange={handleNuevoJuegoChange} />
                   </div>
-                  <button type="button" className="btn btn-primary" onClick={handleAgregarJuego} data-bs-dismiss="modal">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => {
+                      const result = handleAgregarJuego();
+                      if (result) {
+                        const modal = window.bootstrap.Modal.getOrCreateInstance(document.getElementById('addModal'));
+                        modal.hide();
+                      }
+                    }}
+                  >
                     Agregar Juego
                   </button>
                 </form>
@@ -227,7 +249,17 @@ function Admin() {
                     <label htmlFor="Trailer" className="form-label">URL del Tráiler</label>
                     <input type="text" className="form-control" id="Trailer" name="Trailer" value={juegoEditando.Trailer} onChange={handleJuegoEditandoChange} />
                   </div>
-                  <button type="button" className="btn btn-primary" onClick={handleConfirmEdit} data-bs-dismiss="modal">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => {
+                      const result = handleConfirmEdit();
+                      if (result) {
+                        const modal = window.bootstrap.Modal.getOrCreateInstance(document.getElementById('editModal'));
+                        modal.hide();
+                      }
+                    }}
+                  >
                     Confirmar Edición
                   </button>
                 </form>
